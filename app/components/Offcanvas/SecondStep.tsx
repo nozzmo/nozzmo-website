@@ -31,7 +31,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
       </div>
 
       <div className="md:flex-1">
-        <form name="contact" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true">
           <OffcanvasInput name="name" placeholder="Name" />
           <OffcanvasInput name="company" placeholder="Company" />
           <OffcanvasInput name="phone" placeholder="Phone" />
