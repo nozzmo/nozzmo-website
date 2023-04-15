@@ -6,6 +6,7 @@ import Button, { IconButton } from "~/components/Button";
 import OffcanvasInput, { OffcanvasTextarea } from "~/components/OffcanvasInput";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
+import { Form } from "@remix-run/react";
 
 interface SecondStepProps extends BaseOffcanvasProps {
   formLogo: string;
@@ -31,7 +32,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
       </div>
 
       <div className="md:flex-1">
-        <form name="contact" method="POST" data-netlify="true">
+        <Form method="post">
           <OffcanvasInput name="name" placeholder="Name" />
           <OffcanvasInput name="company" placeholder="Company" />
           <OffcanvasInput name="phone" placeholder="Phone" />
@@ -46,7 +47,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
             title="Send"
             button={{ type: "submit" }}
           />
-        </form>
+        </Form>
       </div>
     </ContentLimiter>
   </section>

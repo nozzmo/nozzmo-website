@@ -12,10 +12,12 @@ const OffcanvasInput = ({
   placeholder,
   value,
   onChange,
+  name,
 }: OffcanvasInputProps) => (
   <input
     className={commonInputClasses}
     placeholder={placeholder}
+    name={name}
     value={value}
     onChange={(e) => onChange && onChange(e.target.value)}
   />
@@ -25,10 +27,12 @@ export const OffcanvasTextarea = ({
   placeholder,
   value,
   onChange,
+  name,
 }: OffcanvasInputProps) => (
   <textarea
     className={`${commonInputClasses} h-40`}
     placeholder={placeholder}
+    name={name}
     value={value}
     onChange={(e) => onChange && onChange(e.target.value)}
   />
