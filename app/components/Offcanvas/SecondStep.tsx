@@ -33,6 +33,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
 
       <div className="md:flex-1">
         <Form method="post">
+          <input type="hidden" name="form-name" value="contact" />
           <OffcanvasInput name="name" placeholder="Name" />
           <OffcanvasInput name="company" placeholder="Company" />
           <OffcanvasInput name="phone" placeholder="Phone" />
