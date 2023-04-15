@@ -4,6 +4,7 @@ interface OffcanvasInputProps {
   value?: string;
   onChange?: (value: string) => void;
   name: string;
+  isHoney?: boolean;
 }
 
 const commonInputClasses = `bg-transparent border-b border-white/30 box-border duration-300 font-thin mb-5 outline-none placeholder-gray-400 px-4 py-3 text-left transition w-full focus:border-white text-white sm:text-lg md:text-xl`;
@@ -13,9 +14,10 @@ const OffcanvasInput = ({
   value,
   onChange,
   name,
+  isHoney = false,
 }: OffcanvasInputProps) => (
   <input
-    className={commonInputClasses}
+    className={`${commonInputClasses} ${isHoney ? "hidden" : ""}`}
     placeholder={placeholder}
     name={name}
     value={value}
