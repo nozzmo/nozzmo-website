@@ -1,12 +1,15 @@
+import { ValidatedForm } from "remix-validated-form";
 import { X } from "react-feather";
 
 import { BaseOffcanvasProps, OffcanvasOption } from ".";
 import Navbar from "~/components/Navbar";
-import Button, { IconButton } from "~/components/Button";
+import bg from "~/assets/images/offcanvas.jpg";
+import { IconButton } from "~/components/Button";
+import { SubmitButton } from "./SubmitButton";
 import OffcanvasInput, { OffcanvasTextarea } from "~/components/OffcanvasInput";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
-import { Form } from "@remix-run/react";
+import validator from "./formValidator";
 
 interface SecondStepProps extends BaseOffcanvasProps {
   formLogo: string;
@@ -14,7 +17,10 @@ interface SecondStepProps extends BaseOffcanvasProps {
 }
 
 const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
-  <section className="bg-black text-white fixed h-screen left-0 overflow-y-auto top-0 w-full z-10">
+  <section
+    className="bg-cover h-screen text-white"
+    style={{ backgroundImage: `url(${bg})` }}
+  >
     <ContentLimiter className="pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10 lg:pb-32">
       <Navbar
         left={<img src={formLogo} />}
@@ -32,7 +38,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
       </div>
 
       <div className="md:flex-1">
-        <Form method="post">
+        <ValidatedForm validator={validator} method="post">
           <input type="hidden" name="form-name" value="contact" />
           <OffcanvasInput name="topic" placeholder="Topic" isHoney />
           <OffcanvasInput name="name" placeholder="Name" />
@@ -43,13 +49,8 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
             name="more"
             placeholder="Tell us about your project"
           />
-          <Button
-            level="secondary"
-            size="large"
-            title="Send"
-            button={{ type: "submit" }}
-          />
-        </Form>
+          <SubmitButton />
+        </ValidatedForm>
       </div>
     </ContentLimiter>
   </section>

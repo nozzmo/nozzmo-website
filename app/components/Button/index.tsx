@@ -19,11 +19,13 @@ interface IconButtonProps {
 }
 
 const baseClass =
-  "border border-solid rounded-full focus:outline-none focus:shadow-outline";
+  "border border-solid duration-200 rounded-full transition-all focus:outline-none focus:shadow-outline active:scale-[0.98]";
 
 const buttonLevelClass = (level?: ButtonLevel) => (curry: string) => {
-  const primary = "border-white text-white hover:bg-white/20";
-  const secondary = "bg-white border-black text-black hover:bg-white/80";
+  const primary =
+    "border-white text-white hover:bg-white/20 active:bg-white/10";
+  const secondary =
+    "bg-white border-black text-black hover:bg-white/80 active:bg-white/90";
 
   switch (level) {
     case "secondary":
@@ -82,7 +84,7 @@ export const AnchorButton = ({
 export const IconButton = ({ Icon, onClick }: IconButtonProps) => (
   <button
     onClick={onClick}
-    className="bg-white/0 duration-300 flex h-10 items-center justify-center outline-none rounded transition-colors w-10 hover:bg-white/20"
+    className="bg-white/0 duration-300 flex h-10 items-center justify-center outline-none rounded transition-colors w-10 hover:bg-white/20 active:scale-[0.98]"
   >
     {Icon}
   </button>

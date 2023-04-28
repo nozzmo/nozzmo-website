@@ -1,43 +1,53 @@
-// react input component, white border bottom, transparent, gray placeholder, white letter, using tailwindcss
+import { useField } from "remix-validated-form";
+
 interface OffcanvasInputProps {
   placeholder: string;
-  value?: string;
-  onChange?: (value: string) => void;
   name: string;
   isHoney?: boolean;
 }
 
-const commonInputClasses = `bg-transparent border-b border-white/30 box-border duration-300 font-thin mb-5 outline-none placeholder-gray-400 px-4 py-3 text-left transition w-full focus:border-white text-white sm:text-lg md:text-xl`;
+const InputError = ({ error }: { error?: string }) =>
+  error ? (
+    <div className="animate-appear mt-2 text-red-400 text-sm">{error}</div>
+  ) : null;
+
+const commonInputClasses = `bg-transparent border-b border-white/30 box-border duration-300 font-thin outline-none placeholder-gray-400 px-4 py-3 text-left transition w-full focus:border-white text-white sm:text-lg md:text-xl`;
 
 const OffcanvasInput = ({
   placeholder,
-  value,
-  onChange,
   name,
   isHoney = false,
-}: OffcanvasInputProps) => (
-  <input
-    className={`${commonInputClasses} ${isHoney ? "hidden" : ""}`}
-    placeholder={placeholder}
-    name={name}
-    value={value}
-    onChange={(e) => onChange && onChange(e.target.value)}
-  />
-);
+}: OffcanvasInputProps) => {
+  const { error, getInputProps } = useField(name);
+  return (
+    <div className={`${!isHoney ? "mb-5" : ""}`}>
+      <input
+        className={`${commonInputClasses} ${isHoney ? "hidden" : ""} ${
+          error ? "border-red-400" : ""
+        }`}
+        placeholder={placeholder}
+        {...getInputProps({ id: name })}
+      />
+      <InputError error={error} />
+    </div>
+  );
+};
 
 export const OffcanvasTextarea = ({
   placeholder,
-  value,
-  onChange,
   name,
-}: OffcanvasInputProps) => (
-  <textarea
-    className={`${commonInputClasses} h-40`}
-    placeholder={placeholder}
-    name={name}
-    value={value}
-    onChange={(e) => onChange && onChange(e.target.value)}
-  />
-);
+}: OffcanvasInputProps) => {
+  const { error, getInputProps } = useField(name);
+  return (
+    <div className="mb-5">
+      <textarea
+        className={`${commonInputClasses} h-40`}
+        placeholder={placeholder}
+        {...getInputProps({ id: name })}
+      />
+      <InputError error={error} />
+    </div>
+  );
+};
 
 export default OffcanvasInput;

@@ -19,6 +19,7 @@ interface OffcanvasProps extends BaseOffcanvasProps {
   formLogo: string;
   options: OffcanvasOption[];
   preselected?: number;
+  isOpen?: boolean;
 }
 
 const Offcanvas = ({
@@ -27,28 +28,33 @@ const Offcanvas = ({
   preselected,
   formLogo,
   onClose,
+  isOpen = false,
 }: OffcanvasProps) => {
   useEscape(onClose);
 
   const { selected, select } = useSelect<OffcanvasOption>(options, preselected);
 
-  if (selected != null) {
-    return (
-      <SecondStep
-        formLogo={formLogo}
-        onClose={onClose}
-        selectedOption={selected}
-      />
-    );
-  }
-
   return (
-    <FirstStep
-      logo={logo}
-      options={options}
-      onOptionSelected={(index) => select(index)}
-      onClose={onClose}
-    />
+    <div
+      className={`animate-all bg-black duration-500 fixed left-0 overflow-y-auto top-0 w-full z-20 ${
+        isOpen ? "h-screen shadow-black/50 opacity-100" : "h-0 opacity-50"
+      }`}
+    >
+      {selected != null ? (
+        <SecondStep
+          formLogo={formLogo}
+          onClose={onClose}
+          selectedOption={selected}
+        />
+      ) : (
+        <FirstStep
+          logo={logo}
+          options={options}
+          onOptionSelected={(index) => select(index)}
+          onClose={onClose}
+        />
+      )}
+    </div>
   );
 };
 
@@ -56,6 +62,7 @@ export default ({
   options,
   onClose,
   preselected,
+  isOpen,
 }: Omit<OffcanvasProps, "logo" | "formLogo">) => (
   <Offcanvas
     logo={blacklogo}
@@ -63,5 +70,6 @@ export default ({
     options={options}
     onClose={onClose}
     preselected={preselected}
+    isOpen={isOpen}
   />
 );

@@ -2,6 +2,7 @@ import { Menu } from "react-feather";
 
 import content from "~/content/intro";
 import logo from "~/assets/images/logo.svg";
+import bg from "~/assets/images/first_section.jpg";
 import Navbar from "~/components/Navbar";
 import ContentLimiter from "../ContentLimiter";
 import Button, { IconButton } from "~/components/Button";
@@ -20,7 +21,10 @@ const Intro = ({
   onMenuClicked,
   onStartProjectClicked,
 }: IntroProps) => (
-  <section className="bg-black border-b border-white/30 text-white">
+  <section
+    className="bg-black bg-cover border-b border-t border-white/20 text-white"
+    style={{ backgroundImage: `url(${bg})` }}
+  >
     <ContentLimiter className="pb-10 pt-6 sm:pt-8 sm:pb-16 md:pt-10 md:pb-24 lg:pb-44">
       <Navbar
         left={<img src={logo} />}

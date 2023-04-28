@@ -3,7 +3,7 @@ import TextSlider from "~/components/TextSlider";
 
 export default function () {
   return (
-    <section>
+    <section className="bg-white">
       <TextSlider
         slides={content.comments.map((comment) => ({ text: comment }))}
       />

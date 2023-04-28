@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function useSelect<T>(options: T[], preselected?: number) {
@@ -7,6 +7,15 @@ export default function useSelect<T>(options: T[], preselected?: number) {
   const [selectedIndex, setSelectedIndex] = useState<number | undefined>(
     preselected
   );
+
+  useEffect(() => {
+    if (preselected != null) {
+      select(preselected);
+    } else {
+      clear();
+    }
+  }, [preselected]);
+
 
   const select = (index: number) => {
     setSelected(options[index]);

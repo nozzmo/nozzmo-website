@@ -11,7 +11,7 @@ interface OurImpactProps {
 }
 
 const OurImpact = ({ title, impacts }: OurImpactProps) => (
-  <section className="border-t border-black-50 py-24 sm:py-32">
+  <section className="bg-white border-t border-black-50 py-24 sm:py-32">
     <ContentLimiter className="max-w-7xl mx-auto ">
       <H2 title={title} className="text-center" />
       <div className="justify-center items-center flex flex-col md:flex-row">

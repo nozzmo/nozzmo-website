@@ -2,6 +2,7 @@ import content from "~/content/wecan";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2, P } from "~/components/Typography";
 import Button from "~/components/Button";
+import bg from "~/assets/images/second_section.jpg";
 
 interface WeCanProps {
   title: string;
@@ -16,7 +17,10 @@ const WeCan = ({
   description,
   onStartProjectClick,
 }: WeCanProps) => (
-  <section className="bg-black border-b border-white/30 items-center py-24 sm:py-32 md:flex">
+  <section
+    className="bg-black bg-cover border-b border-white/30 items-center py-24 sm:py-32 md:flex"
+    style={{ backgroundImage: `url(${bg})` }}
+  >
     <div className="md:flex-1"></div>
 
     <ContentLimiter className="flex-1 text-white">

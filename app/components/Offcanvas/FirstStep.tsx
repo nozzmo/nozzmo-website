@@ -17,7 +17,7 @@ const FirstStep = ({
   onOptionSelected,
   onClose,
 }: FirstStepProps) => (
-  <section className="animate-appear bg-gray-200 fixed h-screen left-0 overflow-y-auto top-0 w-full  z-10">
+  <section className="bg-gray-200 h-screen">
     <ContentLimiter className="pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10 lg:pb-32">
       <Navbar
         left={<img src={logo} />}
