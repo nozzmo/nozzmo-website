@@ -11,7 +11,7 @@ const GlobalAlert = ({ message, timeout = 5000 }: GlobalAlert) => {
     timeout
   );
 
-  console.log("INTERNAL MESSAGE", internalMessage);
+  console.log("INTERNAL MESSAGE", internalMessage, timeout);
   return internalMessage ? (
     <div className="animate-appear bg-black fixed h-10 left-0 leading-10 px-4 right-0 text-center text-sm text-white top-0">
       {internalMessage}
