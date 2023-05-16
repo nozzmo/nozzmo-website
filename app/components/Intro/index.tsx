@@ -29,7 +29,7 @@ const Intro = ({
       className="bg-black bg-cover border-b border-t border-white/20 text-white md:h-screen"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <ContentLimiter className="flex flex-col pb-10 pt-6 sm:pt-8 sm:pb-16 md:h-full md:pt-10 md:snap-start">
+      <ContentLimiter className="flex flex-col pb-10 pt-6 sm:pt-8 sm:pb-16 md:h-full md:pt-10">
         <Navbar
           left={<img src={logo} />}
           right={
