@@ -46,6 +46,7 @@ export default function Index() {
   const [preselected, setPreselected] = useState<number | undefined>(undefined);
   const { isOpen, close, open } = useCloseable(false);
   const actionData = useActionData<typeof action>();
+  console.log("cacacacaca", messageTimeout);
   const msgTimeout = parseInt(messageTimeout as string);
   const {
     temporalMessage: globalMessage,
@@ -78,7 +79,7 @@ export default function Index() {
 
   return (
     <main className="h-screen overflow-auto snap-y snap-proximity">
-      <GlobalAlert message={globalMessage} timeout={msgTimeout * 10000000.25} />
+      <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
       <Offcanvas
         options={offcanvasOptions}
         preselected={preselected}
