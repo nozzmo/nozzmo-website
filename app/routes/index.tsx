@@ -37,6 +37,8 @@ export async function action({ request }: ActionArgs) {
     },
     body,
   });
+
+  return "We have received your message. We will contact you soon.";
 }
 
 export default function Index() {
