@@ -18,3 +18,35 @@ input:-webkit-autofill:active {
 input:-webkit-autofill{
   -webkit-text-fill-color: white !important;
 }
+
+.appearing {
+  opacity: 0;
+  /* transform: translateX(-20px); */
+  transition: all 0.5s ease-in-out;
+}
+
+.appearing[data-is-visible="true"] {
+  opacity: 1;
+  /* transform: translateX(0); */
+}
+
+.left-appearing {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.left-appearing[data-is-visible="true"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.appearing-turn-1 { transition-delay: 0s; }
+.appearing-turn-2 { transition-delay: 0.125s; }
+.appearing-turn-3 { transition-delay: 0.25s; }
+.appearing-turn-4 { transition-delay: 0.375s; }
+.appearing-turn-5 { transition-delay: 0.5s; }
+.appearing-turn-6 { transition-delay: 0.675s; }
+.appearing-turn-7 { transition-delay: 0.75s; }
+.appearing-turn-8 { transition-delay: 0.875s; }
+.appearing-turn-9 { transition-delay: 1s; }

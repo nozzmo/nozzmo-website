@@ -60,11 +60,13 @@ const Button = ({
   size,
   className = "",
   button,
+  ...rest
 }: ButtonProps) => (
   <button
     onClick={onClick}
     className={`${buttonClass(level, size)} ${className}`}
     {...button}
+    {...rest}
   >
     {title}
   </button>
@@ -75,16 +77,18 @@ export const AnchorButton = ({
   level,
   size,
   href = "",
+  ...rest
 }: ButtonProps) => (
-  <a href={href} className={buttonClass(level, size)}>
+  <a href={href} className={buttonClass(level, size)} {...rest}>
     {title}
   </a>
 );
 
-export const IconButton = ({ Icon, onClick }: IconButtonProps) => (
+export const IconButton = ({ Icon, onClick, ...rest }: IconButtonProps) => (
   <button
     onClick={onClick}
     className="bg-white/0 duration-300 flex h-10 items-center justify-center outline-none rounded transition-colors w-10 hover:bg-white/20 active:scale-[0.98]"
+    {...rest}
   >
     {Icon}
   </button>

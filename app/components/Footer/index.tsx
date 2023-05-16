@@ -4,6 +4,7 @@ import Copyright from "./Copyright";
 import offcanvasOptions from "~/content/offcanvasOptions";
 import FooterLink from "./FooterLink";
 import ContentLimiter from "~/components/ContentLimiter";
+import useIsVisible from "~/hooks/useIsVisible";
 
 interface FooterProps {
   copyrightYear: number;
@@ -19,25 +20,34 @@ const Footer = ({
   logo,
   options,
   onOptionClick,
-}: FooterProps) => (
-  <footer className="bg-white border-t border-black/10 md:snap-start">
-    <ContentLimiter>
-      <div className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24">
-        <img src={logo} className="h-7 mb-8 mr-16 w-auto" />
-        <div className="flex flex-col">
-          {options.map((option, index) => (
-            <FooterLink
-              key={option.title}
-              onClick={() => onOptionClick(index)}
-              title={option.title}
-            />
-          ))}
+}: FooterProps) => {
+  const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
+  return (
+    <footer className="bg-white border-t border-black/10 md:snap-start">
+      <ContentLimiter>
+        <div className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24">
+          <img
+            src={logo}
+            className="left-appearing appearing-turn-1 h-7 mb-8 mr-16 w-auto"
+            data-is-visible={isVisible}
+          />
+          <div className="flex flex-col" ref={isVisibleRef}>
+            {options.map((option, index) => (
+              <FooterLink
+                key={option.title}
+                onClick={() => onOptionClick(index)}
+                title={option.title}
+                isVisible={isVisible}
+                turn={index + 1}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </ContentLimiter>
-    <Copyright year={copyrightYear} text={copyright} />
-  </footer>
-);
+      </ContentLimiter>
+      <Copyright year={copyrightYear} text={copyright} />
+    </footer>
+  );
+};
 
 export default function ({
   onOptionClick,

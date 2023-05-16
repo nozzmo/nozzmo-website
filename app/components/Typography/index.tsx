@@ -8,17 +8,19 @@ interface ParagraphProps {
   className?: string;
 }
 
-export const H1 = ({ title, className }: TitleProps) => (
+export const H1 = ({ title, className, ...rest }: TitleProps) => (
   <h1
     className={`font-light mb-4 text-3xl sm:mb-6 sm:text-5xl md:mb-8 lg:text-7xl ${className}`}
+    {...rest}
   >
     {title}
   </h1>
 );
 
-export const H2 = ({ title, className }: TitleProps) => (
+export const H2 = ({ title, className, ...rest }: TitleProps) => (
   <h2
     className={`font-thin mb-4 text-2xl sm:mb-5 sm:text-3xl md:mb-7 lg:text-5xl ${className}`}
+    {...rest}
   >
     {title}
   </h2>
@@ -32,9 +34,10 @@ export const H3 = ({ title, className }: TitleProps) => (
   </h3>
 );
 
-export const P = ({ text, className }: ParagraphProps) => (
+export const P = ({ text, className, ...rest }: ParagraphProps) => (
   <p
     className={`leading-7 text-base sm:text-lg md:leading-8 md:text-lg ${className}`}
+    {...rest}
   >
     {text}
   </p>
