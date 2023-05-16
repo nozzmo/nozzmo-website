@@ -46,7 +46,6 @@ export default function Index() {
   const [preselected, setPreselected] = useState<number | undefined>(undefined);
   const { isOpen, close, open } = useCloseable(false);
   const actionData = useActionData<typeof action>();
-  console.log("cacacacaca", messageTimeout);
   const msgTimeout = parseInt(messageTimeout as string);
   const {
     temporalMessage: globalMessage,
@@ -54,8 +53,6 @@ export default function Index() {
   } = useTemporalMessage(msgTimeout);
 
   useEffect(() => {
-    // @ts-ignore
-    window.setGlobalMessage = setGlobalMessage;
     if (actionData) {
       close();
       setGlobalMessage(actionData);
