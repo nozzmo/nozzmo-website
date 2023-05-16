@@ -53,7 +53,8 @@ export default function Index() {
   } = useTemporalMessage(msgTimeout);
 
   useEffect(() => {
-    console.log("ACTION DATA", actionData);
+    // @ts-ignore
+    window.setGlobalMessage = setGlobalMessage;
     if (actionData) {
       close();
       setGlobalMessage(actionData);
@@ -77,7 +78,7 @@ export default function Index() {
 
   return (
     <main className="h-screen overflow-auto snap-y snap-proximity">
-      <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
+      <GlobalAlert message={globalMessage} timeout={msgTimeout * 10000000.25} />
       <Offcanvas
         options={offcanvasOptions}
         preselected={preselected}
