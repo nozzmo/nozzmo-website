@@ -53,8 +53,7 @@ export default function Index() {
   } = useTemporalMessage(msgTimeout);
 
   useEffect(() => {
-    // @ts-ignore
-    window.globalMessage = setGlobalMessage;
+    console.log("ACTION DATA", actionData);
     if (actionData) {
       close();
       setGlobalMessage(actionData);
