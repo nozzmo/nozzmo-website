@@ -20,7 +20,7 @@ const Footer = ({
   options,
   onOptionClick,
 }: FooterProps) => (
-  <footer className="bg-white border-t border-black/10">
+  <footer className="bg-white border-t border-black/10 md:snap-start">
     <ContentLimiter>
       <div className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24">
         <img src={logo} className="h-7 mb-8 mr-16 w-auto" />

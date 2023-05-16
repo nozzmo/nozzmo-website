@@ -22,10 +22,10 @@ const Intro = ({
   onStartProjectClicked,
 }: IntroProps) => (
   <section
-    className="bg-black bg-cover border-b border-t border-white/20 text-white"
+    className="bg-black bg-cover border-b border-t border-white/20 text-white md:h-screen"
     style={{ backgroundImage: `url(${bg})` }}
   >
-    <ContentLimiter className="pb-10 pt-6 sm:pt-8 sm:pb-16 md:pt-10 md:pb-24 lg:pb-44">
+    <ContentLimiter className="flex flex-col pb-10 pt-6 sm:pt-8 sm:pb-16 md:h-full md:pt-10 md:snap-start">
       <Navbar
         left={<img src={logo} />}
         right={
@@ -40,7 +40,7 @@ const Intro = ({
         }
       />
 
-      <div className="max-w-xl mt-12 sm:mt-16 md:mt-24 xl:mt-40">
+      <div className="flex flex-col max-w-xl mt-12 sm:mt-16 md:flex-1 md:mt-0 md:justify-center">
         <H1 title={title} />
         <P
           className="leading-7 text-base sm:text-lg md:leading-8 md:text-lg"

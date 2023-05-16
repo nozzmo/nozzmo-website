@@ -73,7 +73,7 @@ export default function Index() {
   );
 
   return (
-    <main>
+    <main className="h-screen overflow-auto snap-y snap-proximity">
       <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
       <Offcanvas
         options={offcanvasOptions}

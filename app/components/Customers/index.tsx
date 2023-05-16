@@ -10,7 +10,7 @@ interface CustomersProps {
 
 const Customers = ({ title, customers }: CustomersProps) => {
   return (
-    <section className="bg-black pb-16 pt-12 md:pb-22 md:pt-18 lg:pb-44 lg:pt-32">
+    <section className="flex flex-col bg-black pb-16 pt-12 md:justify-center md:h-screen md:pb-22 md:pt-18 md:snap-start lg:pb-44 lg:pt-32">
       <ContentLimiter className="lg:px-6">
         <H2
           title={title}

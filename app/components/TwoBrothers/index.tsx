@@ -18,13 +18,9 @@ const TwoBrothers = ({
   description,
   onStartProjectClick,
 }: TwoBrothersProps) => (
-  <section className="bg-slate-100 items-center md:flex">
-    <div className="md:flex-1">
-      <img
-        src={image}
-        alt={title}
-        className="max-h-[52rem] object-cover w-full"
-      />
+  <section className="bg-slate-100 items-center md:flex md:h-screen md:snap-start">
+    <div className="h-full md:flex-1">
+      <img src={image} alt={title} className="object-cover h-full w-full" />
     </div>
 
     <ContentLimiter className="flex-1">

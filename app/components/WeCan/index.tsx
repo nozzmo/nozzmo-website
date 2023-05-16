@@ -18,7 +18,7 @@ const WeCan = ({
   onStartProjectClick,
 }: WeCanProps) => (
   <section
-    className="bg-black bg-cover border-b border-white/30 items-center py-24 sm:py-32 md:flex"
+    className="bg-black bg-cover border-b border-white/30 items-center py-24 sm:py-32 md:flex md:h-screen md:snap-start"
     style={{ backgroundImage: `url(${bg})` }}
   >
     <div className="md:flex-1"></div>

@@ -16,7 +16,7 @@ const OurServices = ({
   services,
   onServiceClick,
 }: OurServicesProps) => (
-  <section className="bg-black">
+  <section className="bg-black md:snap-start">
     <ContentLimiter className="py-12 md:py-18 lg:py-24">
       <div className="text-sm uppercase text-gray-600">{subtitle}</div>
       <H2 title={title} className="mb-0 text-white sm:mb-0 md:mb-0 lg:mb-0" />

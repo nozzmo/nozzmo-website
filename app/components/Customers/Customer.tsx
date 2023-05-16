@@ -5,7 +5,7 @@ export interface CustomerProps {
 
 const Customer = ({ name, logo }: CustomerProps) => (
   <img
-    className="align-middle inline-block mb-2 mx-2 md:mb-4 md:mx-4 lg:mb-6 lg:mx-6"
+    className="align-middle w-40 inline-block mb-2 mx-2 md:mb-4 md:mx-4 lg:mb-6 lg:mx-6"
     src={logo}
     alt={name}
   />
