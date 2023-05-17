@@ -19,11 +19,10 @@ const OurServices = ({
 }: OurServicesProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="bg-black md:snap-start">
+    <section className="bg-black md:snap-start" ref={isVisibleRef}>
       <ContentLimiter className="py-12 md:py-18 lg:py-24">
         <div
           className="left-appearing appearing-turn-1 text-sm uppercase text-gray-600"
-          ref={isVisibleRef}
           data-is-visible={isVisible}
         >
           {subtitle}

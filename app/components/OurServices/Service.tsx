@@ -11,7 +11,7 @@ export interface ServiceProps {
 const Service = ({ title, description, background, onClick }: ServiceProps) => (
   <div className="bg-black group overflow-hidden p-12 relative md:p-20">
     <div
-      className="absolute duration-300 transition-all bg-cover bottom-0 left-0 opacity-0 right-0 scale-105 top-0 group-hover:scale-100 group-hover:opacity-100"
+      className="absolute duration-300 transition-all bg-cover bottom-0 left-0 md:opacity-0 right-0 scale-105 top-0 md:group-hover:scale-100 md:group-hover:opacity-100"
       style={{
         backgroundImage: `url(${background})`,
         // boxShadow: "0 0 1px 0 white",
@@ -19,7 +19,7 @@ const Service = ({ title, description, background, onClick }: ServiceProps) => (
     />
     <div className="relative h-full pb-20 z-10">
       <H3 title={title} className="text-white" />
-      <p className="duration-500 opacity-0 text-white transition-all group-hover:opacity-100">
+      <p className="duration-500 md:opacity-0 text-white transition-all md:group-hover:opacity-100">
         {description}
       </p>
       <Button

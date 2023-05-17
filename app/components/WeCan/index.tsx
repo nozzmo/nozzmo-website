@@ -27,10 +27,9 @@ const WeCan = ({
       <div className="md:flex-1"></div>
 
       <ContentLimiter className="flex-1 text-white">
-        <div className="max-w-xl">
+        <div className="max-w-xl" ref={isVisibleRef}>
           <div
             className="left-appearing appearing-turn-1 mb-6 text-sm uppercase text-gray-600"
-            ref={isVisibleRef}
             data-is-visible={isVisible}
           >
             {subtitle}

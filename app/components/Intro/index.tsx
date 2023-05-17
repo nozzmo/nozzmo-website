@@ -44,8 +44,10 @@ const Intro = ({
           }
         />
 
-        <div className="flex flex-col max-w-xl mt-12 sm:mt-16 md:flex-1 md:mt-0 md:justify-center">
-          <div ref={isVisibleRef} />
+        <div
+          className="flex flex-col max-w-xl mt-12 sm:mt-16 md:flex-1 md:mt-0 md:justify-center"
+          ref={isVisibleRef}
+        >
           <H1
             title={title}
             className="left-appearing appearing-turn-1"

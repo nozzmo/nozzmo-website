@@ -1,5 +1,6 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import type { ActionArgs } from "@remix-run/node";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 
 import GlobalAlert from "~/components/GlobalAlert";
@@ -16,8 +17,8 @@ import WeCan from "~/components/WeCan";
 import OurImpact from "~/components/OurImpact";
 import Footer from "~/components/Footer";
 import ClientComms from "~/components/ClientComms";
-import { useActionData, useLoaderData } from "@remix-run/react";
 import useTemporalMessage from "~/hooks/useTemporalMessage";
+import data from "~/content/general";
 
 export async function loader() {
   return json({ messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT });
@@ -38,10 +39,11 @@ export async function action({ request }: ActionArgs) {
     body,
   });
 
-  return "We have received your message. We will contact you soon.";
+  return data.success;
 }
 
 export default function Index() {
+  const container = useRef<HTMLDivElement>(null);
   const { messageTimeout } = useLoaderData<typeof loader>();
   const [preselected, setPreselected] = useState<number | undefined>(undefined);
   const { isOpen, close, open } = useCloseable(false);
@@ -75,7 +77,13 @@ export default function Index() {
   );
 
   return (
-    <main className="h-screen overflow-auto snap-y snap-proximity">
+    <main
+      className={`
+        h-screen snap-y snap-proximity
+        ${isOpen ? "overflow-hidden" : "overflow-auto"}
+      `}
+      ref={container}
+    >
       <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
       <Offcanvas
         options={offcanvasOptions}
@@ -87,7 +95,6 @@ export default function Index() {
       <article
         className={`
           duration-700 relative transition-all z-10
-          ${globalMessage ? "pt-10" : ""}
           ${isOpen ? "blur" : ""}
         `}
       >

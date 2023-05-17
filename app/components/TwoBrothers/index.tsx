@@ -21,7 +21,10 @@ const TwoBrothers = ({
 }: TwoBrothersProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="bg-slate-100 items-center md:flex md:h-screen md:snap-start">
+    <section
+      className="bg-slate-100 items-center md:flex md:h-screen md:snap-start"
+      ref={isVisibleRef}
+    >
       <div className="h-full md:flex-1">
         <img
           src={image}
@@ -50,7 +53,6 @@ const TwoBrothers = ({
             className="left-appearing appearing-turn-3"
             data-is-visible={isVisible}
           />
-          <div ref={isVisibleRef} />
         </div>
       </ContentLimiter>
     </section>

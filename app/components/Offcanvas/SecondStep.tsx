@@ -32,7 +32,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
       />
     </ContentLimiter>
 
-    <ContentLimiter className="animate-appear pb-6 sm:pb-14 md:flex md:pb-20">
+    <ContentLimiter className="animate-appear pb-32 sm:pb-14 md:flex md:pb-20">
       <div className="mb-8 md:flex-1 md:mr-12 lg:mr-20 xl:mr-40">
         <H2 title={selectedOption.title} />
       </div>

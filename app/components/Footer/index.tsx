@@ -25,13 +25,16 @@ const Footer = ({
   return (
     <footer className="bg-white border-t border-black/10 md:snap-start">
       <ContentLimiter>
-        <div className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24">
+        <div
+          className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24"
+          ref={isVisibleRef}
+        >
           <img
             src={logo}
             className="left-appearing appearing-turn-1 h-7 mb-8 mr-16 w-auto"
             data-is-visible={isVisible}
           />
-          <div className="flex flex-col" ref={isVisibleRef}>
+          <div className="flex flex-col">
             {options.map((option, index) => (
               <FooterLink
                 key={option.title}

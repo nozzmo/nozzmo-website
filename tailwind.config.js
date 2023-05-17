@@ -8,6 +8,10 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        appearUp: {
+          '0%': { opacity: 0, transform: 'translateY(-100%)' },
+          '100%': { opacity: 1 },
+        },
         rolldown: {
           '0%': { height: 0 },
           '100%': { height: '100vh' },
