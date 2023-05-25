@@ -6,12 +6,14 @@ export default {
       title: "years in business"
     },
     {
-      highlight: "100+",
-      title: "projects launched"
+      highlight: "100",
+      title: "projects launched",
+      addPlus: true
     },
     {
-      highlight: "50+",
-      title: "clients"
+      highlight: "50",
+      title: "clients",
+      addPlus: true
     },
   ]
 }

@@ -14,6 +14,9 @@ const OurImpact = ({ title, impacts }: OurImpactProps) => (
   <section className="bg-white border-t border-black-50 py-24 sm:py-32 md:snap-start">
     <ContentLimiter className="max-w-7xl mx-auto ">
       <H2 title={title} className="text-center" />
+      <br />
+      <br />
+      <br />
       <div className="justify-center items-center flex flex-col md:flex-row">
         {impacts.map((impact, i) => (
           <Fragment key={impact.highlight}>

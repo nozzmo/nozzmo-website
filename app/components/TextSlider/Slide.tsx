@@ -3,17 +3,35 @@ import ContentLimiter from "~/components/ContentLimiter";
 
 export interface SlideProps {
   text: string;
+  highlights: string[];
   isActive?: boolean;
 }
 
-export const Slide = ({ text, isActive = false }: SlideProps) => (
+export const Slide = ({
+  text,
+  isActive = false,
+  highlights = [],
+}: SlideProps) => (
   <div
-    className={`absolute bottom-0 duration-300 flex items-center justify-center left-0 ${
-      !isActive ? "opacity-0" : "opacity-100"
+    className={`absolute bottom-0 cursor-default duration-300 flex items-center justify-center left-0 ${
+      !isActive ? "opacity-0 pointer-events-none" : "opacity-100 z-10"
     } right-0 top-0 transition`}
   >
     <ContentLimiter>
-      <H3 title={text} className="text-center" />
+      <div
+        className="font-thin mb-4 text-center text-xl sm:mb-5 sm:text-2xl md:mb-7 lg:text-4xl"
+        dangerouslySetInnerHTML={{
+          __html: text
+            .split(" ")
+            .map((token) => {
+              if (highlights.includes(token)) {
+                return `<span class="enhanced-token">${token}</span>`;
+              }
+              return token;
+            })
+            .join(" "),
+        }}
+      />
     </ContentLimiter>
   </div>
 );

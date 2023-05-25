@@ -21,7 +21,7 @@ const WeCan = ({
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
-      className="bg-black bg-cover border-b border-white/30 items-center py-24 sm:py-32 md:flex md:h-screen md:snap-start"
+      className="bg-black bg-cover border-b border-white/30 h-screen items-center py-24 sm:py-32 md:flex md:snap-start"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="md:flex-1"></div>
@@ -45,7 +45,7 @@ const WeCan = ({
             data-is-visible={isVisible}
           />
           <Button
-            className="left-appearing appearing-turn-4"
+            className="left-appearing"
             title="Start project"
             onClick={onStartProjectClick}
             data-is-visible={isVisible}

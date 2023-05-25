@@ -7,7 +7,7 @@ interface TextSiderProps {
   interval?: number;
 }
 
-const TextSlider = ({ slides, interval = 5000 }: TextSiderProps) => {
+const TextSlider = ({ slides, interval = 10000 }: TextSiderProps) => {
   const { selected } = useIntegerRotation(slides.length, interval);
 
   return (

@@ -50,7 +50,7 @@ const TwoBrothers = ({
             title="Start project"
             level="secondary"
             onClick={onStartProjectClick}
-            className="left-appearing appearing-turn-3"
+            className="left-appearing"
             data-is-visible={isVisible}
           />
         </div>

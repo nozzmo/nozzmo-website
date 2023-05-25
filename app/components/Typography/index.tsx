@@ -10,7 +10,7 @@ interface ParagraphProps {
 
 export const H1 = ({ title, className, ...rest }: TitleProps) => (
   <h1
-    className={`font-light mb-4 text-3xl sm:mb-6 sm:text-5xl md:mb-8 lg:text-7xl ${className}`}
+    className={`font-light mb-4 text-3xl sm:mb-6 sm:text-5xl md:mb-8 lg:text-6xl ${className}`}
     {...rest}
   >
     {title}

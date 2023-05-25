@@ -26,10 +26,10 @@ const Intro = ({
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
-      className="bg-black bg-cover border-b border-t border-white/20 text-white md:h-screen"
+      className="bg-black bg-cover border-b border-t border-white/20 h-screen text-white"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <ContentLimiter className="flex flex-col pb-10 pt-6 sm:pt-8 sm:pb-16 md:h-full md:pt-10">
+      <ContentLimiter className="flex flex-col h-full pb-10 pt-6 sm:pt-8 sm:pb-16 md:pt-10">
         <Navbar
           left={<img src={logo} />}
           right={
@@ -45,7 +45,7 @@ const Intro = ({
         />
 
         <div
-          className="flex flex-col max-w-xl mt-12 sm:mt-16 md:flex-1 md:mt-0 md:justify-center"
+          className="flex flex-col flex-1 justify-center max-w-xl mt-0"
           ref={isVisibleRef}
         >
           <H1

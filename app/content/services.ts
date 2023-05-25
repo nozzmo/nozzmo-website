@@ -27,11 +27,11 @@ export default {
     },
     {
       title: "Development",
-      description: "Our company specializes in end-to-end digital product development, working closely with designers to bring your ideas to life. From native mobile apps for iOS and Android to web applications, wearable apps, and B2B/enterprise software, we have the skills and experience to deliver top-quality products. Let us help you turn your vision into a reality.e.",
+      description: "Our company specializes in end-to-end digital product development, working closely with designers to bring your ideas to life. From native mobile apps for iOS and Android to web applications, wearable apps, and B2B/enterprise software, we have the skills and experience to deliver top-quality products. Let us help you turn your vision into a reality.",
       background: dev,
     },
     {
-      title: "Growtth",
+      title: "Growth",
       description: "We specialize in helping businesses grow through product-driven marketing. We can help you with website design and optimization, conversion funnel optimization, and lead generation campaigns for digital products. Our range of services is designed to help you attract and convert potential users.",
       background: growth,
     },
