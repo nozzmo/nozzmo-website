@@ -13,7 +13,7 @@ export const Slide = ({
   highlights = [],
 }: SlideProps) => (
   <div
-    className={`absolute bottom-0 cursor-default duration-300 flex items-center justify-center left-0 ${
+    className={`absolute bottom-0 cursor-none duration-300 flex items-center justify-center left-0 ${
       !isActive ? "opacity-0 pointer-events-none" : "opacity-100 z-10"
     } right-0 top-0 transition`}
   >

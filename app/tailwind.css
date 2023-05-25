@@ -51,17 +51,22 @@ input:-webkit-autofill{
 .appearing-turn-8 { transition-delay: 0.875s; }
 .appearing-turn-9 { transition-delay: 1s; }
 
-/* @keyframes breathe {
+
+@keyframes buttonAppearLeft {
   0% {
-    background: rgba(0, 0, 0, 0.0);
+    opacity: 0;
+    transform: scale(0.1) translateX(-6rem) translateY(6rem);
   }
-  50% {
-    background: rgba(203, 114, 255, 0.2);
+  100% { opacity: 1; }
+}
+
+@keyframes buttonAppearRight {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateX(6rem)  translateY(6rem);
   }
-  100% {
-    background: rgba(0, 0, 0, 0.0);
-  }
-} */
+  100% { opacity: 1; }
+}
 
 .enhanced-token {
   border-radius: 0.5rem;

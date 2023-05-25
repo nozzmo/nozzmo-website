@@ -28,19 +28,13 @@ const useIntegerRotation = (
 
   const start = () => {
     setTimer(
-      timer => {
-        if (!timer) {
-          return setInterval(() => {
-            if (reverse) {
-              previous(true);
-            } else {
-              next(true);
-            }
-          }, interval);
+      timer => !timer ? setInterval(() => {
+        if (reverse) {
+          previous(true);
+        } else {
+          next(true);
         }
-
-        return null;
-      }
+      }, interval) : timer
     );
   };
 
