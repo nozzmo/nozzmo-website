@@ -4,7 +4,7 @@ interface CopyrightProps {
 }
 
 const Copyright = ({ year, text }: CopyrightProps) => (
-  <div className="bg-black py-2 text-center text-white">
+  <div className="bg-black pb-8 text-center text-white">
     <span className="text-sm">© {year}</span>{" "}
     <span className="text-sm">{text}</span>
   </div>

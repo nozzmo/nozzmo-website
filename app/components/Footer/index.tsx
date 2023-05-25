@@ -23,10 +23,10 @@ const Footer = ({
 }: FooterProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <footer className="bg-white border-t border-black/10 md:snap-start">
+    <footer className="bg-black border-t border-black/10 md:snap-start">
       <ContentLimiter>
         <div
-          className="flex flex-col items-start py-16 md:flex-row md:justify-between md:py-24"
+          className="flex flex-col items-start pt-16 pb-8 md:flex-row md:justify-between md:pt-24 md:pb-16"
           ref={isVisibleRef}
         >
           <img
