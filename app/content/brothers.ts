@@ -1,4 +1,4 @@
-import image from '~/assets/images/working.jpg';
+import image from '~/assets/images/protein.jpg';
 import konami from '~/assets/images/brothers.jpg';
 
 export default {

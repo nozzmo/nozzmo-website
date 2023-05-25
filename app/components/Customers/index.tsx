@@ -12,9 +12,12 @@ interface CustomersProps {
 const Customers = ({ title, customers }: CustomersProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="flex flex-col bg-black h-screen pb-16 pt-12 md:justify-center md:pb-22 md:pt-18 md:snap-start lg:pb-44 lg:pt-32">
-      <ContentLimiter className="lg:px-6">
-        <div ref={isVisibleRef}>
+    <section className="bg-black h-screen pb-16 pt-12 md:pb-22 md:pt-18 md:snap-start lg:pb-44 lg:pt-32">
+      <ContentLimiter className="h-full">
+        <div
+          ref={isVisibleRef}
+          className="flex flex-col h-full justify-center lg:px-6"
+        >
           <H2
             title={title}
             className="appearing appearing-turn-1 max-w-4xl mx-auto text-center text-white"
