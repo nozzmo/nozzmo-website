@@ -6,7 +6,7 @@ import otb from '~/assets/images/customers/otb.png';
 import pagebird from '~/assets/images/customers/pagebird.png';
 
 export default {
-  title: "We've shipped hundreds of successful products and features for our clients.",
+  title: "Some of our most recent engagements:",
   images: [
     { name: "Edoo", image: edoo },
     { name: "Exeboard", image: exeboard },

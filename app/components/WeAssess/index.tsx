@@ -1,20 +1,14 @@
-import { useState } from "react";
 import LeftRightHero, { LeftRightHeroProps } from "../LeftRightHero";
-import content from "~/content/brothers";
-import useKonamiCode from "~/hooks/useKonamiCode";
+import content from "~/content/weAssess";
 
 export default ({
   onStartProjectClick,
 }: Omit<LeftRightHeroProps, "image" | "title" | "description">) => {
-  const [image, setImage] = useState(content.image);
-
-  useKonamiCode(() => setImage(content.konami));
-
   return (
     <LeftRightHero
       onStartProjectClick={onStartProjectClick}
       {...content}
-      image={image}
+      image={content.image}
     />
   );
 };

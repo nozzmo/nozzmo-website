@@ -1,17 +1,17 @@
-export interface CustomerProps {
+export interface ImageProps {
   name: string;
-  logo: string;
+  image: string;
   turn: number;
   isVisible: boolean;
 }
 
-const Customer = ({ name, logo, turn, isVisible }: CustomerProps) => (
+const Image = ({ name, image, turn, isVisible }: ImageProps) => (
   <img
     className={`appearing appearing-turn-${turn} align-middle h-12 inline-block mb-4 mx-4`}
     data-is-visible={isVisible}
-    src={logo}
+    src={image}
     alt={name}
   />
 );
 
-export default Customer;
+export default Image;
