@@ -27,7 +27,8 @@ export default function HiringFooter({
           <Button
             title={content.cta}
             onClick={onStartProjectClick}
-            className=" max-w-[300px] mb-16 md:max-w-none md:mb-0"
+            level="secondary"
+            className="max-w-[300px] mb-16 md:max-w-none md:mb-0"
           />
           <img
             src={content.logo}
