@@ -7,7 +7,9 @@ interface CopyrightProps {
 const Copyright = ({ year, text, inverted = false }: CopyrightProps) => (
   <div
     className={`py-4 text-center ${
-      inverted ? "bg-white text-center" : "bg-black text-center text-white"
+      inverted
+        ? "bg-white text-black text-center"
+        : "bg-black text-center text-white"
     }`}
   >
     <span className="text-sm">© {year}</span>{" "}

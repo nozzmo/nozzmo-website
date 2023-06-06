@@ -5,16 +5,25 @@ import Button from "~/components/Button";
 
 export interface HeroProps {
   title: string;
-  description: string;
+  description?: string;
   cta: string;
+  inverted?: boolean;
   onStartProjectClick: () => void;
 }
 
-const Hero = ({ title, description, cta, onStartProjectClick }: HeroProps) => {
+const Hero = ({
+  title,
+  description,
+  cta,
+  inverted = false,
+  onStartProjectClick,
+}: HeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
-      className="text-center bg-slate-100 items-center md:flex md:h-screen md:snap-start"
+      className={`${
+        inverted ? "bg-black text-white" : "bg-slate-100"
+      } items-center text-center md:flex md:h-screen md:snap-start`}
       ref={isVisibleRef}
     >
       <ContentLimiter className="flex-1">
@@ -24,14 +33,22 @@ const Hero = ({ title, description, cta, onStartProjectClick }: HeroProps) => {
             className="left-appearing appearing-turn-1"
             data-is-visible={isVisible}
           />
-          <P
-            text={description}
-            className="left-appearing appearing-turn-2 mb-8"
-            data-is-visible={isVisible}
-          />
+          {!description && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
+          {description && (
+            <P
+              text={description}
+              className="left-appearing appearing-turn-2 mb-8"
+              data-is-visible={isVisible}
+            />
+          )}
           <Button
             title={cta}
-            level="secondary"
+            level={inverted ? "primary" : "secondary"}
             onClick={onStartProjectClick}
             className="left-appearing"
             data-is-visible={isVisible}
