@@ -5,7 +5,7 @@ import FreeConsultation from "~/components/FreeConsultation";
 import HiringFooter from "~/components/HiringFooter";
 import OurTeam from "~/components/OurTeam";
 import HowCanWeHelpYou from "~/components/HowCanWeHelpYou";
-// import OurProcess from "~/components/OurProcess";
+import OurProcess from "~/components/OurProcess";
 
 export default function Hiring() {
   return (
@@ -13,7 +13,7 @@ export default function Hiring() {
       <WeAssess onStartProjectClick={() => null} />
       <HowCanWeHelpYou />
       <Engagements />
-      {/* <OurProcess /> */}
+      <OurProcess />
       <Discover onStartProjectClick={() => null} />
       <FreeConsultation onStartProjectClick={() => null} />
       <OurTeam />

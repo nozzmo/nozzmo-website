@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+import caretUp from "~/assets/images/caretup.svg";
 import { H3, P } from "~/components/Typography";
 
 export interface AccordionItemProps {
@@ -11,15 +13,22 @@ const AccordionItem = ({ title, description, number }: AccordionItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div onClick={() => setIsOpen(!isOpen)}>
-      <div>
-        <div>
-          <span className="text-black font-bold">{number}</span>
-        </div>
-        <H3 title={title} />
-      </div>
-      <div>{isOpen ? "^" : "v"}</div>
-      {isOpen && <P text={description} />}
+    <div
+      className={`border-b border-black/50 cursor-pointer duration-500 pl-14 pt-7 relative transition-all ${
+        !isOpen ? "pb-0" : "pb-7"
+      }`}
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <span className="absolute left-2 text-black/50 top-8">{number}</span>
+      <H3 title={title} />
+      <img
+        src={caretUp}
+        alt={isOpen ? "open" : "closed"}
+        className={`absolute duration-300 right-2 top-10 transition-transform ${
+          isOpen ? "rotate-180" : ""
+        }`}
+      />
+      {isOpen && <P text={description} className="animate-appear" />}
     </div>
   );
 };

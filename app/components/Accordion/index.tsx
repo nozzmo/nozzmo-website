@@ -7,7 +7,7 @@ interface AccordionProps {
 
 const Accordion = ({ items }: AccordionProps) => {
   return (
-    <div className="border border-gray-200 rounded">
+    <div className="md:pl-64">
       {items.map((item) => {
         const { title, description, number } = item;
         return (
