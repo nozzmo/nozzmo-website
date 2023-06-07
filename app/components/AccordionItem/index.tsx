@@ -20,7 +20,7 @@ const AccordionItem = ({ title, description, number }: AccordionItemProps) => {
       onClick={() => setIsOpen(!isOpen)}
     >
       <span className="absolute left-2 text-black/50 top-8">{number}</span>
-      <H3 title={title} />
+      <H3 title={title} className="!mb-7" />
       <img
         src={caretUp}
         alt={isOpen ? "open" : "closed"}
