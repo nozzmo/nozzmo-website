@@ -4,12 +4,16 @@ import Discover from "~/components/Discover";
 import FreeConsultation from "~/components/FreeConsultation";
 import HiringFooter from "~/components/HiringFooter";
 import OurTeam from "~/components/OurTeam";
+import HowCanWeHelpYou from "~/components/HowCanWeHelpYou";
+// import OurProcess from "~/components/OurProcess";
 
 export default function Hiring() {
   return (
     <main>
       <WeAssess onStartProjectClick={() => null} />
+      <HowCanWeHelpYou />
       <Engagements />
+      {/* <OurProcess /> */}
       <Discover onStartProjectClick={() => null} />
       <FreeConsultation onStartProjectClick={() => null} />
       <OurTeam />
