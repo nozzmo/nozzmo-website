@@ -14,7 +14,7 @@ const AccordionItem = ({ title, description, number }: AccordionItemProps) => {
 
   return (
     <div
-      className={`border-b border-black/50 cursor-pointer duration-500 pl-14 pt-7 relative transition-all ${
+      className={`border-b border-black/50 cursor-pointer duration-500 pl-14 pt-7 relative transition-all last:border-b-0 ${
         !isOpen ? "pb-0" : "pb-7"
       }`}
       onClick={() => setIsOpen(!isOpen)}
