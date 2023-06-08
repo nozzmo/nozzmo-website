@@ -15,7 +15,7 @@ const ContactForm = ({
   size = "large",
   resumed = false,
 }: ContactForm) => (
-  <ValidatedForm validator={validator} method="post">
+  <ValidatedForm validator={validator} method="post" resetAfterSubmit>
     <input type="hidden" name="form-name" value={name} />
     <OffcanvasInput name="topic" placeholder="Topic" isHoney />
     <OffcanvasInput name="name" placeholder="Name" />

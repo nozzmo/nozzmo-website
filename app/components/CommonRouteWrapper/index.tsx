@@ -31,12 +31,14 @@ export async function commonAction({ request }: ActionArgs) {
 
 interface CommonRouteWrapperProps {
   children: React.ReactNode;
-  onSuccess: () => void;
+  onSuccess?: () => void;
+  reverseNotification?: boolean;
 }
 
 const CommonRouteWrapper = ({
   children,
   onSuccess,
+  reverseNotification = false,
 }: CommonRouteWrapperProps) => {
   const { messageTimeout } = useLoaderData<typeof commonLoader>();
   const actionData = useActionData<typeof commonAction>();
@@ -48,14 +50,18 @@ const CommonRouteWrapper = ({
 
   useEffect(() => {
     if (actionData) {
-      onSuccess();
+      onSuccess && onSuccess();
       setGlobalMessage(actionData);
     }
   }, [actionData]);
 
   return (
     <>
-      <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
+      <GlobalAlert
+        message={globalMessage}
+        timeout={msgTimeout * 1.25}
+        reversed={reverseNotification}
+      />
       {children}
     </>
   );
