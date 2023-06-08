@@ -1,6 +1,6 @@
-import stylesheet from "~/tailwind.css";
-
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { useEffect } from "react";
+import { json } from "@remix-run/node";
+import type { LinksFunction, MetaFunction, ActionArgs } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,10 +8,17 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useActionData,
 } from "@remix-run/react";
+
+import stylesheet from "~/tailwind.css";
 import fav16 from "~/assets/images/favicon16x16.png";
 import fav32 from "~/assets/images/favicon32x32.png";
 import fav96 from "~/assets/images/favicon96x96.png";
+import GlobalAlert from "~/components/GlobalAlert";
+import useTemporalMessage from "~/hooks/useTemporalMessage";
+import data from "~/content/general";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -20,7 +27,45 @@ export const meta: MetaFunction = () => ({
   description: "We create world-class digital products.",
 });
 
+export async function loader() {
+  return json({ messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT });
+}
+
+export async function action({ request }: ActionArgs) {
+  const formData = await request.formData();
+  let body = "";
+  for (const [key, value] of formData.entries()) {
+    body += `${key}=${value}&`;
+  }
+
+  await fetch(`${request.url}form`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
+  });
+
+  return data.success;
+}
+
 export default function App() {
+  const { messageTimeout } = useLoaderData<typeof loader>();
+  const msgTimeout = parseInt(messageTimeout as string);
+  const actionData = useActionData<typeof action>();
+
+  const {
+    temporalMessage: globalMessage,
+    setTemporalMessage: setGlobalMessage,
+  } = useTemporalMessage(msgTimeout);
+
+  useEffect(() => {
+    if (actionData) {
+      close();
+      setGlobalMessage(actionData);
+    }
+  }, [actionData]);
+
   return (
     <html lang="en">
       <head>
@@ -28,6 +73,7 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-black">
+        <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

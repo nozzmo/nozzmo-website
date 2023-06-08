@@ -1,5 +1,5 @@
 import image from "~/assets/images/nozzmo_recruiting_logo.svg";
-import bg from "~/assets/images/first_section.jpg";
+import bg from "~/assets/images/hiring_intro_bg.jpg";
 
 export default {
   image,
