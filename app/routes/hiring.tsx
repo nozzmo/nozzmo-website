@@ -10,7 +10,7 @@ import HiringIntro from "~/components/HiringIntro";
 
 export default function Hiring() {
   return (
-    <main className="h-screen overflow-auto snap-y snap-proximity">
+    <main className="h-screen overflow-auto">
       <HiringIntro />
       <WeAssess onStartProjectClick={() => null} />
       <HowCanWeHelpYou />

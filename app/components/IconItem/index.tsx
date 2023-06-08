@@ -8,7 +8,7 @@ export interface IconItemProps {
 
 const IconItem = ({ icon, title, description }: IconItemProps) => {
   return (
-    <div className="border border-white/20 duration-500 group px-16 py-20 relative transition hover:bg-white">
+    <div className="border border-white/20 duration-500 group px-16 py-20 relative transition hover:bg-[#d9d9d9]">
       <div className="max-w-md mx-auto">
         <H3
           title={title}
