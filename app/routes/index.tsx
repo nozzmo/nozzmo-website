@@ -48,7 +48,7 @@ export default function Index() {
   );
 
   return (
-    <CommonRouteWrapper>
+    <CommonRouteWrapper onSuccess={close}>
       <main
         className={`
           h-screen snap-y snap-proximity

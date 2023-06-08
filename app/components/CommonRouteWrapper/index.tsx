@@ -31,9 +31,13 @@ export async function commonAction({ request }: ActionArgs) {
 
 interface CommonRouteWrapperProps {
   children: React.ReactNode;
+  onSuccess: () => void;
 }
 
-const CommonRouteWrapper = ({ children }: CommonRouteWrapperProps) => {
+const CommonRouteWrapper = ({
+  children,
+  onSuccess,
+}: CommonRouteWrapperProps) => {
   const { messageTimeout } = useLoaderData<typeof commonLoader>();
   const actionData = useActionData<typeof commonAction>();
   const msgTimeout = parseInt(messageTimeout as string);
@@ -44,7 +48,7 @@ const CommonRouteWrapper = ({ children }: CommonRouteWrapperProps) => {
 
   useEffect(() => {
     if (actionData) {
-      close();
+      onSuccess();
       setGlobalMessage(actionData);
     }
   }, [actionData]);
