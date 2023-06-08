@@ -91,7 +91,7 @@ const Intro = ({
               data-is-visible={isVisible}
             >
               <div className="border border-white/80 max-w-md mx-auto px-6 py-12 rounded-lg w-full lg:mx-0">
-                <ContactForm name="contact" size="medium" resumed />
+                <ContactForm name="hiring" size="medium" resumed />
               </div>
             </div>
           )}
