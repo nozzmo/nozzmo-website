@@ -1,5 +1,9 @@
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
+import type { ActionArgs } from "@remix-run/node";
+import { useActionData, useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
+import GlobalAlert from "~/components/GlobalAlert";
 import HomeIntro from "~/components/HomeIntro";
 import TwoBrothers from "~/components/TwoBrothers";
 import Offcanvas from "~/components/Offcanvas";
@@ -13,11 +17,49 @@ import WeCan from "~/components/WeCan";
 import OurImpact from "~/components/OurImpact";
 import Footer from "~/components/Footer";
 import ClientComms from "~/components/ClientComms";
+import useTemporalMessage from "~/hooks/useTemporalMessage";
+import data from "~/content/general";
+
+export async function loader() {
+  return json({ messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT });
+}
+
+export async function action({ request }: ActionArgs) {
+  const formData = await request.formData();
+  let body = "";
+  for (const [key, value] of formData.entries()) {
+    body += `${key}=${value}&`;
+  }
+
+  await fetch(`${request.url}form`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
+  });
+
+  return data.success;
+}
 
 export default function Index() {
   const container = useRef<HTMLDivElement>(null);
+  const { messageTimeout } = useLoaderData<typeof loader>();
   const [preselected, setPreselected] = useState<number | undefined>(undefined);
   const { isOpen, close, open } = useCloseable(false);
+  const actionData = useActionData<typeof action>();
+  const msgTimeout = parseInt(messageTimeout as string);
+  const {
+    temporalMessage: globalMessage,
+    setTemporalMessage: setGlobalMessage,
+  } = useTemporalMessage(msgTimeout);
+
+  useEffect(() => {
+    if (actionData) {
+      close();
+      setGlobalMessage(actionData);
+    }
+  }, [actionData]);
 
   const clickOpenOption = useMemo<(index: number) => void>(
     () => (index: number) => {
@@ -42,6 +84,7 @@ export default function Index() {
       `}
       ref={container}
     >
+      <GlobalAlert message={globalMessage} timeout={msgTimeout * 1.25} />
       <Offcanvas
         options={offcanvasOptions}
         preselected={preselected}
