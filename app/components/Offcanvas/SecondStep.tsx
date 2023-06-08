@@ -1,15 +1,13 @@
-import { ValidatedForm } from "remix-validated-form";
 import { X } from "react-feather";
 
 import { BaseOffcanvasProps, OffcanvasOption } from ".";
 import Navbar from "~/components/Navbar";
 import bg from "~/assets/images/offcanvas.jpg";
 import { IconButton } from "~/components/Button";
-import { SubmitButton } from "./SubmitButton";
+import ContactForm from "~/components/ContactForm";
 import OffcanvasInput, { OffcanvasTextarea } from "~/components/OffcanvasInput";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
-import validator from "./formValidator";
 
 interface SecondStepProps extends BaseOffcanvasProps {
   formLogo: string;
@@ -38,19 +36,7 @@ const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
       </div>
 
       <div className="md:flex-1">
-        <ValidatedForm validator={validator} method="post">
-          <input type="hidden" name="form-name" value="contact" />
-          <OffcanvasInput name="topic" placeholder="Topic" isHoney />
-          <OffcanvasInput name="name" placeholder="Name" />
-          <OffcanvasInput name="company" placeholder="Company" />
-          <OffcanvasInput name="phone" placeholder="Phone" />
-          <OffcanvasInput name="email" placeholder="Email" />
-          <OffcanvasTextarea
-            name="more"
-            placeholder="Tell us about your project"
-          />
-          <SubmitButton />
-        </ValidatedForm>
+        <ContactForm name="contact" />
       </div>
     </ContentLimiter>
   </section>

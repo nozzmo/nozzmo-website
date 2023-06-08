@@ -4,7 +4,7 @@ import { useActionData, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 
 import GlobalAlert from "~/components/GlobalAlert";
-import Intro from "~/components/Intro";
+import HomeIntro from "~/components/HomeIntro";
 import TwoBrothers from "~/components/TwoBrothers";
 import Offcanvas from "~/components/Offcanvas";
 import useCloseable from "~/hooks/useCloseable";
@@ -98,7 +98,7 @@ export default function Index() {
           ${isOpen ? "blur" : ""}
         `}
       >
-        <Intro
+        <HomeIntro
           onStartProjectClicked={startProjectClicked}
           onMenuClicked={() => {
             setPreselected(undefined);

@@ -37,7 +37,7 @@ const buttonLevelClass = (level?: ButtonLevel) => (curry: string) => {
 
 const buttonSizeClass = (size?: ButtonSize) => (curry: string) => {
   const small = "px-4 py-2 text-xs";
-  const medium = "px-9 py-3 text-sm";
+  const medium = "px-16 py-3 text-sm";
   const large = "px-24 py-4 text-lg";
 
   switch (size) {

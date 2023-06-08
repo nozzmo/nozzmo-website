@@ -6,10 +6,12 @@ import HiringFooter from "~/components/HiringFooter";
 import OurTeam from "~/components/OurTeam";
 import HowCanWeHelpYou from "~/components/HowCanWeHelpYou";
 import OurProcess from "~/components/OurProcess";
+import HiringIntro from "~/components/HiringIntro";
 
 export default function Hiring() {
   return (
     <main className="h-screen overflow-auto snap-y snap-proximity">
+      <HiringIntro />
       <WeAssess onStartProjectClick={() => null} />
       <HowCanWeHelpYou />
       <Engagements />
