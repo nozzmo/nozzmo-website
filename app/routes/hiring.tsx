@@ -9,7 +9,7 @@ import OurProcess from "~/components/OurProcess";
 
 export default function Hiring() {
   return (
-    <main>
+    <main className="h-screen overflow-auto snap-y snap-proximity">
       <WeAssess onStartProjectClick={() => null} />
       <HowCanWeHelpYou />
       <Engagements />

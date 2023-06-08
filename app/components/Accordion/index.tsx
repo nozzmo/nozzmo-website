@@ -3,11 +3,12 @@ import AccordionItem from "~/components/AccordionItem";
 
 interface AccordionProps {
   items: AccordionItemProps[];
+  className?: string;
 }
 
-const Accordion = ({ items }: AccordionProps) => {
+const Accordion = ({ items, className = "", ...rest }: AccordionProps) => {
   return (
-    <div className="md:pl-64">
+    <div className={`md:pl-64 ${className}`} {...rest}>
       {items.map((item) => {
         const { title, description, number } = item;
         return (

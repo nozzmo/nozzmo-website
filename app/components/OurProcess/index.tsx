@@ -3,6 +3,7 @@ import { AccordionItemProps } from "~/components/AccordionItem";
 import Accordion from "~/components/Accordion";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H1 } from "~/components/Typography";
+import useIsVisible from "~/hooks/useIsVisible";
 
 interface OurProcessProps {
   title: string;
@@ -10,13 +11,25 @@ interface OurProcessProps {
 }
 
 const OurProcess = ({ title, items }: OurProcessProps) => {
+  const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section
+      className="bg-white py-16 lg:py-24 md:h-screen md:snap-start"
+      ref={isVisibleRef}
+    >
       <ContentLimiter>
-        <H1 title={title} />
+        <H1
+          title={title}
+          data-is-visible={isVisible}
+          className="appearing appearing-turn-1"
+        />
         <br />
         <br />
-        <Accordion items={items} />
+        <Accordion
+          items={items}
+          data-is-visible={isVisible}
+          className="appearing appearing-turn-2"
+        />
       </ContentLimiter>
     </section>
   );

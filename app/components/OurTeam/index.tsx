@@ -7,7 +7,7 @@ const OurTeam = () => {
   const { title, members } = content;
 
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24 md:snap-start">
       <ContentLimiter>
         <H1 title={title} />
         <br />
