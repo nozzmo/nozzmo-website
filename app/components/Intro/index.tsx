@@ -18,6 +18,7 @@ export interface IntroProps {
   image?: string;
   bg: string;
   includeForm?: boolean;
+  formName?: string;
 }
 
 const Intro = ({
@@ -30,6 +31,7 @@ const Intro = ({
   bg,
   image,
   includeForm = false,
+  formName,
 }: IntroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -85,13 +87,13 @@ const Intro = ({
             />
           </div>
 
-          {includeForm && (
+          {includeForm && formName && (
             <div
               className="left-appearing appearing-turn-4 flex flex-col flex-1 justify-center lg:items-end"
               data-is-visible={isVisible}
             >
               <div className="border border-white/80 max-w-md mx-auto px-6 py-12 rounded-lg w-full lg:mx-0">
-                <ContactForm name="hiring" size="medium" resumed />
+                <ContactForm name={formName} size="medium" resumed />
               </div>
             </div>
           )}

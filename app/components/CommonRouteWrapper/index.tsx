@@ -11,14 +11,16 @@ export async function commonLoader() {
   return json({ messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT });
 }
 
-export async function commonAction({ request }: ActionArgs) {
+export async function commonAction({ request }: ActionArgs, formPath: string) {
   const formData = await request.formData();
   let body = "";
   for (const [key, value] of formData.entries()) {
     body += `${key}=${value}&`;
   }
 
-  await fetch(`${request.url}form`, {
+  const url = new URL(request.url);
+
+  await fetch(`${url.origin}/${formPath}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
