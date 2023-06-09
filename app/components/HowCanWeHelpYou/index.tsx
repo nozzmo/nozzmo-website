@@ -13,7 +13,7 @@ const HowCanWeHelpYouDummy = ({ title, items }: HowCanWeHelpYouProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
-      className="bg-black overflow-x-hidden md:h-screen md:snap-start"
+      className="bg-black overflow-x-hidden md:snap-start"
       ref={isVisibleRef}
     >
       <ContentLimiter className="py-16 lg:py-24">

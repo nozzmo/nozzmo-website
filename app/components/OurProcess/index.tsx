@@ -13,7 +13,10 @@ interface OurProcessProps {
 const OurProcess = ({ title, items }: OurProcessProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="bg-white py-16 lg:py-24" ref={isVisibleRef}>
+    <section
+      className="bg-white py-16 md:snap-start lg:py-24"
+      ref={isVisibleRef}
+    >
       <ContentLimiter>
         <H1
           title={title}

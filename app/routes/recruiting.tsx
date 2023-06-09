@@ -25,7 +25,7 @@ export async function action(args: ActionArgs) {
 export default function Hiring() {
   return (
     <CommonRouteWrapper reverseNotification>
-      <main className="h-screen overflow-auto">
+      <main className="h-screen overflow-auto snap-y snap-proximity">
         <article>
           <HiringIntro />
           <WeAssess onStartProjectClick={() => null} />
