@@ -31,5 +31,8 @@ export default {
       title: "Final selection and onboarding",
       description:"We'll help you select the best candidates and support you through the onboarding process to ensure a successful transition for both the candidate and your team.",
     },
-  ]
+  ],
+  highlights: {
+    title: ["Process"],
+  }
 }

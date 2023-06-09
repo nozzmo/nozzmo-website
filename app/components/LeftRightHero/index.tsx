@@ -11,6 +11,10 @@ export interface LeftRightHeroProps {
   useAnchor?: boolean;
   anchorHref?: string;
   buttonText: string;
+  highlights?: {
+    title?: string[];
+    description?: string[];
+  };
 }
 
 const LeftRightHero = ({
@@ -21,6 +25,7 @@ const LeftRightHero = ({
   useAnchor = false,
   anchorHref,
   buttonText,
+  highlights,
 }: LeftRightHeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -43,11 +48,13 @@ const LeftRightHero = ({
             title={title}
             className="left-appearing appearing-turn-1"
             data-is-visible={isVisible}
+            highlights={highlights?.title}
           />
           <P
             text={description}
             className="left-appearing appearing-turn-2 mb-8"
             data-is-visible={isVisible}
+            highlights={highlights?.description}
           />
           {useAnchor ? (
             <AnchorButton

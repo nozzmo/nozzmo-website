@@ -8,9 +8,12 @@ import useIsVisible from "~/hooks/useIsVisible";
 interface OurProcessProps {
   title: string;
   items: AccordionItemProps[];
+  highlights?: {
+    title?: string[];
+  };
 }
 
-const OurProcess = ({ title, items }: OurProcessProps) => {
+const OurProcess = ({ title, items, highlights }: OurProcessProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
@@ -22,6 +25,7 @@ const OurProcess = ({ title, items }: OurProcessProps) => {
           title={title}
           data-is-visible={isVisible}
           className="appearing appearing-turn-1"
+          highlights={highlights?.title}
         />
         <br />
         <br />
@@ -35,4 +39,10 @@ const OurProcess = ({ title, items }: OurProcessProps) => {
   );
 };
 
-export default () => <OurProcess title={content.title} items={content.items} />;
+export default () => (
+  <OurProcess
+    title={content.title}
+    items={content.items}
+    highlights={content.highlights}
+  />
+);

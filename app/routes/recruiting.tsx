@@ -32,8 +32,8 @@ export default function Hiring() {
           <HiringIntro />
           <WeAssess anchorHref={recruitingCTA} />
           <HowCanWeHelpYou />
-          <Engagements />
           <OurProcess />
+          <Engagements />
           <Discover anchorHref={recruitingCTA} />
           <FreeConsultation anchorHref={recruitingCTA} />
           <OurTeam />

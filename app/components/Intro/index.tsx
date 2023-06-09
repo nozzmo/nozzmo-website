@@ -19,6 +19,10 @@ export interface IntroProps {
   bg: string;
   includeForm?: boolean;
   formName?: string;
+  highlights?: {
+    title?: string[];
+    description?: string[];
+  };
 }
 
 const Intro = ({
@@ -32,6 +36,7 @@ const Intro = ({
   image,
   includeForm = false,
   formName,
+  highlights,
 }: IntroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -79,11 +84,13 @@ const Intro = ({
               title={title}
               className="left-appearing appearing-turn-2"
               data-is-visible={isVisible}
+              highlights={highlights?.title}
             />
             <P
               className="left-appearing appearing-turn-3 leading-7 text-base sm:text-lg md:leading-8 md:text-lg"
               data-is-visible={isVisible}
               text={description}
+              highlights={highlights?.description}
             />
           </div>
 

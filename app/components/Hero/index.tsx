@@ -11,6 +11,10 @@ export interface HeroProps {
   onStartProjectClick?: () => void;
   anchorHref?: string;
   useAnchor?: boolean;
+  highlights?: {
+    title?: string[];
+    description?: string[];
+  };
 }
 
 const Hero = ({
@@ -21,6 +25,7 @@ const Hero = ({
   onStartProjectClick,
   anchorHref,
   useAnchor = false,
+  highlights,
 }: HeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -36,6 +41,7 @@ const Hero = ({
             title={title}
             className="left-appearing appearing-turn-1"
             data-is-visible={isVisible}
+            highlights={highlights?.title}
           />
           {!description && (
             <>
@@ -48,6 +54,7 @@ const Hero = ({
               text={description}
               className="left-appearing appearing-turn-2 mb-8"
               data-is-visible={isVisible}
+              highlights={highlights?.description}
             />
           )}
 

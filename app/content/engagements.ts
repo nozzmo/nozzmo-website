@@ -14,5 +14,8 @@ export default {
     { name: "On the bus", image: otb },
     { name: "Pagebird", image: pagebird },
     { name: "Distefano", image: distefano },
-  ]
+  ],
+  highlights: {
+    title: ["engagements:"],
+  }
 }

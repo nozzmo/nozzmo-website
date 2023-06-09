@@ -2,7 +2,7 @@ import cesar from '~/assets/images/founder.jpg';
 import samuel from '~/assets/images/founder.jpg';
 
 export default {
-  title: 'Our Team',
+  title: 'Our team',
   members: [
     {
       name: 'Samuel',
@@ -14,5 +14,8 @@ export default {
       image: cesar,
       description: 'User-centered and data-driven entrepreneur with hands-on experience designing, building and launching web and mobile products. Founded and led several startups and teams in the US and Guatemala.'
     },
-  ]
+  ],
+  highlights: {
+    title: ['team'],
+  }
 }

@@ -1,6 +1,6 @@
 import { H2, P } from "~/components/Typography";
 
-interface ImageHighlightProps {
+export interface ImageHighlightProps {
   image: string;
   title: string;
   description: string;

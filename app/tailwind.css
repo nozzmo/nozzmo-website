@@ -6,6 +6,10 @@
   html {
     font-family: 'Manrope', sans-serif;
   }
+
+  strong {
+    font-weight: 600;
+  }
 }
 
 input:-webkit-autofill,
