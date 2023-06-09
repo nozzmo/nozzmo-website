@@ -1,13 +1,16 @@
 import useIsVisible from "~/hooks/useIsVisible";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2, P } from "~/components/Typography";
-import Button from "~/components/Button";
+import Button, { AnchorButton } from "~/components/Button";
 
 export interface LeftRightHeroProps {
   image: string;
   title: string;
   description: string;
-  onStartProjectClick: () => void;
+  onStartProjectClick?: () => void;
+  useAnchor?: boolean;
+  anchorHref?: string;
+  buttonText: string;
 }
 
 const LeftRightHero = ({
@@ -15,6 +18,9 @@ const LeftRightHero = ({
   title,
   description,
   onStartProjectClick,
+  useAnchor = false,
+  anchorHref,
+  buttonText,
 }: LeftRightHeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -43,13 +49,23 @@ const LeftRightHero = ({
             className="left-appearing appearing-turn-2 mb-8"
             data-is-visible={isVisible}
           />
-          <Button
-            title="Start project"
-            level="secondary"
-            onClick={onStartProjectClick}
-            className="left-appearing"
-            data-is-visible={isVisible}
-          />
+          {useAnchor ? (
+            <AnchorButton
+              title={buttonText}
+              level="secondary"
+              href={anchorHref}
+              className="left-appearing"
+              data-is-visible={isVisible}
+            />
+          ) : (
+            <Button
+              title={buttonText}
+              level="secondary"
+              onClick={onStartProjectClick}
+              className="left-appearing"
+              data-is-visible={isVisible}
+            />
+          )}
         </div>
       </ContentLimiter>
     </section>

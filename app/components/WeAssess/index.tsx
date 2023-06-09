@@ -2,13 +2,18 @@ import LeftRightHero, { LeftRightHeroProps } from "../LeftRightHero";
 import content from "~/content/weAssess";
 
 export default ({
-  onStartProjectClick,
-}: Omit<LeftRightHeroProps, "image" | "title" | "description">) => {
+  anchorHref,
+}: Omit<
+  LeftRightHeroProps,
+  "image" | "title" | "description" | "onStartProjectClick" | "buttonText"
+>) => {
   return (
     <LeftRightHero
-      onStartProjectClick={onStartProjectClick}
+      useAnchor
+      anchorHref={anchorHref}
       {...content}
       image={content.image}
+      buttonText={content.cta}
     />
   );
 };

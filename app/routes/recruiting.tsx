@@ -1,4 +1,5 @@
 import type { ActionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
 import WeAssess from "~/components/WeAssess";
 import Engagements from "~/components/Engagements";
@@ -23,19 +24,20 @@ export async function action(args: ActionArgs) {
 }
 
 export default function Hiring() {
+  const { recruitingCTA } = useLoaderData<typeof commonLoader>();
   return (
     <CommonRouteWrapper reverseNotification>
       <main className="h-screen overflow-auto snap-y snap-proximity">
         <article>
           <HiringIntro />
-          <WeAssess onStartProjectClick={() => null} />
+          <WeAssess anchorHref={recruitingCTA} />
           <HowCanWeHelpYou />
           <Engagements />
           <OurProcess />
-          <Discover onStartProjectClick={() => null} />
-          <FreeConsultation onStartProjectClick={() => null} />
+          <Discover anchorHref={recruitingCTA} />
+          <FreeConsultation anchorHref={recruitingCTA} />
           <OurTeam />
-          <HiringFooter onStartProjectClick={() => null} />
+          <HiringFooter anchorHref={recruitingCTA} />
         </article>
       </main>
     </CommonRouteWrapper>

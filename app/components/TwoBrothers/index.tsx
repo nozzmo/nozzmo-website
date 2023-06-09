@@ -5,7 +5,10 @@ import useKonamiCode from "~/hooks/useKonamiCode";
 
 export default ({
   onStartProjectClick,
-}: Omit<LeftRightHeroProps, "image" | "title" | "description">) => {
+}: Omit<
+  LeftRightHeroProps,
+  "image" | "title" | "description" | "buttonText"
+>) => {
   const [image, setImage] = useState(content.image);
 
   useKonamiCode(() => setImage(content.konami));
@@ -15,6 +18,7 @@ export default ({
       onStartProjectClick={onStartProjectClick}
       {...content}
       image={image}
+      buttonText={content.cta}
     />
   );
 };

@@ -8,7 +8,10 @@ import useTemporalMessage from "~/hooks/useTemporalMessage";
 import GlobalAlert from "~/components/GlobalAlert";
 
 export async function commonLoader() {
-  return json({ messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT });
+  return json({
+    messageTimeout: process.env.DEFAULT_GLOBAL_MESSAGE_TIMEOUT,
+    recruitingCTA: process.env.RECRUITING_CTA,
+  });
 }
 
 export async function commonAction({ request }: ActionArgs) {

@@ -1,14 +1,16 @@
 import useIsVisible from "~/hooks/useIsVisible";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2, P } from "~/components/Typography";
-import Button from "~/components/Button";
+import Button, { AnchorButton } from "~/components/Button";
 
 export interface HeroProps {
   title: string;
   description?: string;
   cta: string;
   inverted?: boolean;
-  onStartProjectClick: () => void;
+  onStartProjectClick?: () => void;
+  anchorHref?: string;
+  useAnchor?: boolean;
 }
 
 const Hero = ({
@@ -17,6 +19,8 @@ const Hero = ({
   cta,
   inverted = false,
   onStartProjectClick,
+  anchorHref,
+  useAnchor = false,
 }: HeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -46,13 +50,24 @@ const Hero = ({
               data-is-visible={isVisible}
             />
           )}
-          <Button
-            title={cta}
-            level={inverted ? "primary" : "secondary"}
-            onClick={onStartProjectClick}
-            className="left-appearing"
-            data-is-visible={isVisible}
-          />
+
+          {useAnchor ? (
+            <AnchorButton
+              title={cta}
+              level={inverted ? "primary" : "secondary"}
+              href={anchorHref}
+              className="left-appearing"
+              data-is-visible={isVisible}
+            />
+          ) : (
+            <Button
+              title={cta}
+              level={inverted ? "primary" : "secondary"}
+              onClick={onStartProjectClick}
+              className="left-appearing"
+              data-is-visible={isVisible}
+            />
+          )}
         </div>
       </ContentLimiter>
     </section>

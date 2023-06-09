@@ -3,15 +3,13 @@ import content from "~/content/hiringFooter";
 import Copyright from "~/components/Footer/Copyright";
 import ContentLimiter from "../ContentLimiter";
 import { H2, P } from "~/components/Typography";
-import Button from "~/components/Button";
+import { AnchorButton } from "~/components/Button";
 
 interface HiringFooterProps {
-  onStartProjectClick: () => void;
+  anchorHref?: string;
 }
 
-export default function HiringFooter({
-  onStartProjectClick,
-}: HiringFooterProps) {
+export default function HiringFooter({ anchorHref }: HiringFooterProps) {
   return (
     <section className="bg-black text-white">
       <ContentLimiter className="py-16 lg:py-24">
@@ -24,9 +22,9 @@ export default function HiringFooter({
         <br />
 
         <div className="flex flex-col md:flex-row justify-between">
-          <Button
+          <AnchorButton
             title={content.cta}
-            onClick={onStartProjectClick}
+            href={anchorHref}
             level="secondary"
             className="max-w-[300px] mb-16 md:max-w-none md:mb-0"
           />
