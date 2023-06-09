@@ -19,7 +19,7 @@ export async function loader() {
 }
 
 export async function action(args: ActionArgs) {
-  return await commonAction(args, "hiring");
+  return await commonAction(args);
 }
 
 export default function Hiring() {

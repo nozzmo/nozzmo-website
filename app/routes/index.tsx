@@ -24,7 +24,7 @@ export async function loader() {
 }
 
 export async function action(args: ActionArgs) {
-  return await commonAction(args, "contact");
+  return await commonAction(args);
 }
 
 export default function Index() {
