@@ -25,7 +25,7 @@ const buttonLevelClass = (level?: ButtonLevel) => (curry: string) => {
   const primary =
     "border-white text-white hover:bg-white/20 active:bg-white/10";
   const secondary =
-    "bg-white border-black/50 text-black hover:bg-white/20 hover:text-white active:bg-white/90";
+    "bg-white border-black/50 text-black hover:bg-white/20 active:bg-white/90";
 
   switch (level) {
     case "secondary":
