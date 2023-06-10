@@ -15,6 +15,7 @@ export interface HeroProps {
     title?: string[];
     description?: string[];
   };
+  avoidFullscreen?: boolean;
 }
 
 const Hero = ({
@@ -24,19 +25,22 @@ const Hero = ({
   inverted = false,
   onStartProjectClick,
   anchorHref,
-  useAnchor = false,
   highlights,
+  useAnchor = false,
+  avoidFullscreen = false,
 }: HeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
       className={`${
         inverted ? "bg-black text-white" : "bg-slate-100"
-      } items-center text-center md:flex md:h-screen md:snap-start`}
+      } items-center text-center md:flex ${
+        avoidFullscreen ? "" : "md:h-screen md:snap-start"
+      }`}
       ref={isVisibleRef}
     >
       <ContentLimiter className="flex-1">
-        <div className="py-8 lg:py-16">
+        <div className="py-24 md:py-32">
           <H2
             title={title}
             className="left-appearing appearing-turn-1"

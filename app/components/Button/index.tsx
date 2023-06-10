@@ -82,7 +82,7 @@ export const AnchorButton = ({
 }: ButtonProps) => (
   <a
     href={href}
-    className={`${buttonClass(level, size)} ${className}`}
+    className={`inline-block ${buttonClass(level, size)} ${className}`}
     {...rest}
   >
     {title}

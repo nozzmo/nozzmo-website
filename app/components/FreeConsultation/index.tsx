@@ -6,4 +6,12 @@ export default ({
 }: Omit<
   HeroProps,
   "cta" | "title" | "description" | "onStartProjectClick"
->) => <Hero anchorHref={anchorHref} {...content} inverted useAnchor />;
+>) => (
+  <Hero
+    anchorHref={anchorHref}
+    {...content}
+    inverted
+    useAnchor
+    avoidFullscreen
+  />
+);

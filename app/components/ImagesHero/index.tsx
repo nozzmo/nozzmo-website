@@ -9,12 +9,22 @@ interface ImagesHeroProps {
   highlights?: {
     title: string[];
   };
+  avoidFullscreen?: boolean;
 }
 
-const ImagesHero = ({ title, images, highlights }: ImagesHeroProps) => {
+const ImagesHero = ({
+  title,
+  images,
+  highlights,
+  avoidFullscreen = false,
+}: ImagesHeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
-    <section className="bg-black h-screen pb-16 pt-12 md:pb-22 md:pt-18 md:snap-start lg:pb-44 lg:pt-32">
+    <section
+      className={`bg-black py-24 md:py-32 ${
+        avoidFullscreen ? "" : "md:h-screen md:snap-start"
+      }`}
+    >
       <ContentLimiter className="h-full">
         <div
           ref={isVisibleRef}

@@ -43,7 +43,7 @@ const LeftRightHero = ({
       </div>
 
       <ContentLimiter className="flex-1">
-        <div className="max-w-xl py-8 lg:py-16">
+        <div className="max-w-xl py-24 lg:py-32">
           <H2
             title={title}
             className="left-appearing appearing-turn-1"

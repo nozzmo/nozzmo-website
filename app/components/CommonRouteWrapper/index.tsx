@@ -66,6 +66,7 @@ const CommonRouteWrapper = ({
         message={globalMessage}
         timeout={msgTimeout * 1.25}
         reversed={reverseNotification}
+        floating
       />
       {children}
     </>

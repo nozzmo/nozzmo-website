@@ -1,6 +1,7 @@
 import type { ActionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
+import generalContent from "~/content/general";
 import WeAssess from "~/components/WeAssess";
 import Engagements from "~/components/Engagements";
 import Discover from "~/components/Discover";
@@ -14,6 +15,7 @@ import CommonRouteWrapper, {
   commonLoader,
   commonAction,
 } from "~/components/CommonRouteWrapper";
+import GlobalAlert from "~/components/GlobalAlert";
 
 export async function loader() {
   return await commonLoader();
@@ -27,7 +29,13 @@ export default function Hiring() {
   const { recruitingCTA } = useLoaderData<typeof commonLoader>();
   return (
     <CommonRouteWrapper reverseNotification>
-      <main className="h-screen overflow-auto snap-y snap-proximity">
+      <GlobalAlert
+        message={generalContent.recruitingGlobalMessage}
+        cta={generalContent.recruitingGlobalCTA}
+        ctaHref={recruitingCTA}
+        reversed
+      />
+      <main>
         <article>
           <HiringIntro />
           <WeAssess anchorHref={recruitingCTA} />

@@ -48,7 +48,7 @@ const Intro = ({
     >
       <ContentLimiter
         className={`flex flex-col h-full pb-10 pt-6 sm:pt-8 sm:pb-16 md:pt-10 ${
-          includeForm ? "!pt-14 !pb-14" : ""
+          includeForm ? "!py-24 sm:!py-24" : ""
         }`}
       >
         {!hideMenu && (

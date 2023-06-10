@@ -52,6 +52,6 @@ const HiringFooter = ({
   </section>
 );
 
-export default ({ anchorHref }: { anchorHref: string }) => (
+export default ({ anchorHref }: { anchorHref?: string }) => (
   <HiringFooter {...content} anchorHref={anchorHref} />
 );
