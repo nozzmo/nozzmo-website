@@ -1,7 +1,8 @@
+import type { ImageProps } from "./Image";
 import useIsVisible from "~/hooks/useIsVisible";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
-import Image, { ImageProps } from "./Image";
+import Image from "./Image";
 
 interface ImagesHeroProps {
   title: string;

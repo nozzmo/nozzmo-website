@@ -22,7 +22,7 @@ interface OffcanvasProps extends BaseOffcanvasProps {
   isOpen?: boolean;
 }
 
-const Offcanvas = ({
+const OffcanvasDummy = ({
   logo,
   options,
   preselected,
@@ -58,13 +58,13 @@ const Offcanvas = ({
   );
 };
 
-export default ({
+const OffCanvas = ({
   options,
   onClose,
   preselected,
   isOpen,
 }: Omit<OffcanvasProps, "logo" | "formLogo">) => (
-  <Offcanvas
+  <OffcanvasDummy
     logo={blacklogo}
     formLogo={whitelogo}
     options={options}
@@ -73,3 +73,5 @@ export default ({
     isOpen={isOpen}
   />
 );
+
+export default OffCanvas;

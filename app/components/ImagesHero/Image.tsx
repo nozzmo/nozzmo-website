@@ -7,7 +7,7 @@ export interface ImageProps {
 
 const Image = ({ name, image, turn, isVisible }: ImageProps) => (
   <img
-    className={`appearing appearing-turn-${turn} align-middle h-12 inline-block mb-4 mx-4`}
+    className={`appearing appearing-turn-${turn} align-middle block h-12 mb-4 mx-auto sm:inline-block sm:mx-4`}
     data-is-visible={isVisible}
     src={image}
     alt={name}

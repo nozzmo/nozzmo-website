@@ -1,11 +1,10 @@
 import { X } from "react-feather";
 
-import { BaseOffcanvasProps, OffcanvasOption } from ".";
+import type { BaseOffcanvasProps, OffcanvasOption } from ".";
 import Navbar from "~/components/Navbar";
 import bg from "~/assets/images/offcanvas.jpg";
 import { IconButton } from "~/components/Button";
 import ContactForm from "~/components/ContactForm";
-import OffcanvasInput, { OffcanvasTextarea } from "~/components/OffcanvasInput";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
 
@@ -16,12 +15,12 @@ interface SecondStepProps extends BaseOffcanvasProps {
 
 const SecondStep = ({ formLogo, onClose, selectedOption }: SecondStepProps) => (
   <section
-    className="bg-cover h-screen text-white"
+    className="bg-cover h-screen text-white overflow-auto"
     style={{ backgroundImage: `url(${bg})` }}
   >
     <ContentLimiter className="pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-24 md:pt-10 lg:pb-32">
       <Navbar
-        left={<img src={formLogo} />}
+        left={<img src={formLogo} alt={selectedOption.title} />}
         right={
           <>
             <IconButton Icon={<X color="white" />} onClick={onClose} />

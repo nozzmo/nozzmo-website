@@ -9,7 +9,7 @@ export interface ServiceProps {
 }
 
 const Service = ({ title, description, background, onClick }: ServiceProps) => (
-  <div className="bg-black group h-screen overflow-hidden relative md:h-auto md:p-20">
+  <div className="bg-black group overflow-hidden relative md:h-auto md:p-20">
     <div
       className="bg-cover border-b border-b-white/30 duration-300 px-12 py-14 transition-all md:absolute md:bottom-0 md:group-hover:scale-100 md:group-hover:opacity-100 md:left-0 md:opacity-0 md:p-0 md:right-0 md:scale-105 md:top-0"
       style={{

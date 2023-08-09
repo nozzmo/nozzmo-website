@@ -1,5 +1,6 @@
 import content from "~/content/services";
-import Service, { ServiceProps } from "./Service";
+import type { ServiceProps } from "./Service";
+import Service from "./Service";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H2 } from "~/components/Typography";
 import useIsVisible from "~/hooks/useIsVisible";
@@ -11,7 +12,7 @@ interface OurServicesProps {
   onServiceClick: () => void;
 }
 
-const OurServices = ({
+const OurServicesDummy = ({
   title,
   subtitle,
   services,
@@ -49,8 +50,10 @@ const OurServices = ({
   );
 };
 
-export default function ({
+const OurServices = ({
   onServiceClick,
-}: Omit<OurServicesProps, "title" | "subtitle" | "services">) {
-  return <OurServices {...content} onServiceClick={onServiceClick} />;
-}
+}: Omit<OurServicesProps, "title" | "subtitle" | "services">) => (
+  <OurServicesDummy {...content} onServiceClick={onServiceClick} />
+);
+
+export default OurServices;

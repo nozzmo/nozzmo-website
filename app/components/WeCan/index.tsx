@@ -12,7 +12,7 @@ interface WeCanProps {
   onStartProjectClick: () => void;
 }
 
-const WeCan = ({
+const WeCanDummy = ({
   title,
   subtitle,
   description,
@@ -21,7 +21,7 @@ const WeCan = ({
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section
-      className="bg-black bg-cover border-b border-white/30 h-screen items-center py-24 sm:py-32 md:flex md:snap-start"
+      className="bg-black bg-cover border-b border-white/30 items-center py-24 sm:h-screen sm:py-32 md:flex md:snap-start"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="md:flex-1"></div>
@@ -56,8 +56,10 @@ const WeCan = ({
   );
 };
 
-export default function ({
+const WeCan = ({
   onStartProjectClick,
-}: Omit<WeCanProps, "title" | "subtitle" | "description">) {
-  return <WeCan {...content} onStartProjectClick={onStartProjectClick} />;
-}
+}: Omit<WeCanProps, "title" | "subtitle" | "description">) => (
+  <WeCanDummy {...content} onStartProjectClick={onStartProjectClick} />
+);
+
+export default WeCan;

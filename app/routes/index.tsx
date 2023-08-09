@@ -51,7 +51,7 @@ export default function Index() {
     <CommonRouteWrapper onSuccess={close}>
       <main
         className={`
-          h-screen snap-y snap-proximity
+          h-screen
           ${isOpen ? "overflow-hidden" : "overflow-auto"}
         `}
         ref={container}
