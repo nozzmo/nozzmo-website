@@ -8,7 +8,9 @@ export interface HeroProps {
   description?: string;
   cta: string;
   inverted?: boolean;
+  useBlackCTA?: boolean;
   onStartProjectClick?: () => void;
+  subtitle?: string;
   anchorHref?: string;
   useAnchor?: boolean;
   highlights?: {
@@ -24,10 +26,12 @@ const Hero = ({
   cta,
   inverted = false,
   onStartProjectClick,
+  subtitle,
   anchorHref,
   highlights,
   useAnchor = false,
   avoidFullscreen = false,
+  useBlackCTA = false,
 }: HeroProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
@@ -41,6 +45,12 @@ const Hero = ({
     >
       <ContentLimiter className="flex-1">
         <div className="py-24 md:py-32">
+          <div
+            className="left-appearing appearing-turn-1 text-sm uppercase text-gray-900"
+            data-is-visible={isVisible}
+          >
+            {subtitle}
+          </div>
           <H2
             title={title}
             className="left-appearing appearing-turn-1"
@@ -49,7 +59,6 @@ const Hero = ({
           />
           {!description && (
             <>
-              <br />
               <br />
             </>
           )}
@@ -65,17 +74,21 @@ const Hero = ({
           {useAnchor ? (
             <AnchorButton
               title={cta}
-              level={inverted ? "primary" : "secondary"}
+              level={inverted || useBlackCTA ? "primary" : "secondary"}
               href={anchorHref}
-              className="left-appearing"
+              className={`left-appearing ${
+                useBlackCTA ? "!bg-black !text-white" : ""
+              }`}
               data-is-visible={isVisible}
             />
           ) : (
             <Button
               title={cta}
-              level={inverted ? "primary" : "secondary"}
+              level={inverted || useBlackCTA ? "primary" : "secondary"}
               onClick={onStartProjectClick}
-              className="left-appearing"
+              className={`left-appearing ${
+                useBlackCTA ? "!bg-black !text-white" : ""
+              }`}
               data-is-visible={isVisible}
             />
           )}

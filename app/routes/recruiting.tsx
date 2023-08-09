@@ -40,9 +40,9 @@ export default function Hiring() {
           <HiringIntro />
           <WeAssess anchorHref={recruitingCTA} />
           <HowCanWeHelpYou />
-          <OurProcess />
-          <Engagements />
           <Discover anchorHref={recruitingCTA} />
+          <Engagements />
+          <OurProcess />
           <FreeConsultation anchorHref={recruitingCTA} />
           <OurTeam />
           <HiringFooter anchorHref={recruitingCTA} />

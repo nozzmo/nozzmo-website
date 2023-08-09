@@ -1,4 +1,4 @@
-import { AccordionItemProps } from "~/components/AccordionItem";
+import type { AccordionItemProps } from "~/components/AccordionItem";
 import AccordionItem from "~/components/AccordionItem";
 
 interface AccordionProps {

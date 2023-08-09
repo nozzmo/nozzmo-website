@@ -1,5 +1,4 @@
 import { Menu } from "react-feather";
-import { ValidatedForm } from "remix-validated-form";
 
 import Navbar from "~/components/Navbar";
 import ContentLimiter from "../ContentLimiter";
@@ -45,6 +44,7 @@ const Intro = ({
         includeForm ? "md:h-screen" : "h-screen"
       }`}
       style={{ backgroundImage: `url(${bg})` }}
+      ref={isVisibleRef}
     >
       <ContentLimiter
         className={`flex flex-col h-full pb-10 pt-6 sm:pt-8 sm:pb-16 md:pt-10 ${
@@ -53,7 +53,7 @@ const Intro = ({
       >
         {!hideMenu && (
           <Navbar
-            left={logo ? <img src={logo} /> : null}
+            left={logo ? <img src={logo} alt={title} /> : null}
             right={
               <>
                 <Button
@@ -68,10 +68,7 @@ const Intro = ({
         )}
 
         <div className="flex flex-1 flex-col gap-16 lg:flex-row lg:items-middle lg:justify-between">
-          <div
-            className="items-start flex flex-col flex-1 justify-center max-w-xl mt-0"
-            ref={isVisibleRef}
-          >
+          <div className="items-start flex flex-col flex-1 justify-center max-w-xl mt-0">
             {image && (
               <img
                 src={image}

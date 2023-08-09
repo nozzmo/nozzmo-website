@@ -1,13 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
 
-const useIsVisible = <T extends Element>(threshold: number = 0.1) => {
+const useIsVisible = <T extends Element>(threshold: number = 0.1, onlyFirsttime: boolean = true) => {
   const isVisibleRef = useRef<T | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (!onlyFirsttime) {
+          setIsVisible(entry.isIntersecting);
+        } else {
+          if (!isVisible && entry.isIntersecting) {
+            setIsVisible(entry.isIntersecting);
+            observer.unobserve(entry.target);
+          }
+        }
+      },
       { threshold }
     );
 
@@ -20,7 +29,7 @@ const useIsVisible = <T extends Element>(threshold: number = 0.1) => {
         observer.unobserve(isVisibleRef.current);
       }
     };
-  }, [isVisibleRef]);
+  }, [isVisibleRef, threshold, onlyFirsttime]);
 
   return { isVisible, isVisibleRef };
 }

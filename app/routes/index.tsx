@@ -18,6 +18,7 @@ import CommonRouteWrapper, {
   commonLoader,
   commonAction,
 } from "~/components/CommonRouteWrapper";
+import GoodProject from "~/components/GoodProject";
 
 export async function loader() {
   return await commonLoader();
@@ -77,6 +78,7 @@ export default function Index() {
             }}
           />
           <WeCan onStartProjectClick={startProjectClicked} />
+          <GoodProject onStartProjectClick={startProjectClicked} />
           <OurServices onServiceClick={startProjectClicked} />
           <Customers />
           <TwoBrothers onStartProjectClick={startProjectClicked} />

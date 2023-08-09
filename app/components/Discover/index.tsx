@@ -1,9 +1,12 @@
-import Hero, { HeroProps } from "~/components/Hero";
+import type { HeroProps } from "~/components/Hero";
+import Hero from "~/components/Hero";
 import content from "~/content/discover";
 
-export default ({
+const Discover = ({
   anchorHref,
 }: Omit<
   HeroProps,
   "cta" | "title" | "description" | "onStartProjectClick"
 >) => <Hero anchorHref={anchorHref} useAnchor {...content} avoidFullscreen />;
+
+export default Discover;

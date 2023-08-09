@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
 
 type ButtonLevel = "primary" | "secondary";
 type ButtonSize = "small" | "medium" | "large";
@@ -24,8 +24,7 @@ const baseClass =
 const buttonLevelClass = (level?: ButtonLevel) => (curry: string) => {
   const primary =
     "border-white text-white hover:bg-white/20 active:bg-white/10";
-  const secondary =
-    "bg-white border-black/50 text-black hover:bg-white/20 active:bg-white/90";
+  const secondary = "bg-white border-black/50 text-black active:bg-white/90";
 
   switch (level) {
     case "secondary":

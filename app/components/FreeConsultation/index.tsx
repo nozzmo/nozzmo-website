@@ -1,7 +1,8 @@
-import Hero, { HeroProps } from "~/components/Hero";
+import type { HeroProps } from "~/components/Hero";
+import Hero from "~/components/Hero";
 import content from "~/content/freeConsultation";
 
-export default ({
+const FreeConsultation = ({
   anchorHref,
 }: Omit<
   HeroProps,
@@ -15,3 +16,5 @@ export default ({
     avoidFullscreen
   />
 );
+
+export default FreeConsultation;

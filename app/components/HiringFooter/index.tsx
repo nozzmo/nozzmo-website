@@ -17,7 +17,7 @@ interface HiringFooterProps {
   };
 }
 
-const HiringFooter = ({
+const HiringFooterDummy = ({
   anchorHref,
   highlights,
   title,
@@ -44,7 +44,7 @@ const HiringFooter = ({
           level="secondary"
           className="max-w-[300px] mb-16 md:max-w-none md:mb-0"
         />
-        <img src={logo} alt={title} className="m-auto md:m-0" />
+        <img src={logo} alt={title} className="max-w-[260px] m-auto md:m-0" />
       </div>
     </ContentLimiter>
 
@@ -52,6 +52,8 @@ const HiringFooter = ({
   </section>
 );
 
-export default ({ anchorHref }: { anchorHref?: string }) => (
-  <HiringFooter {...content} anchorHref={anchorHref} />
+const HiringFooter = ({ anchorHref }: { anchorHref?: string }) => (
+  <HiringFooterDummy {...content} anchorHref={anchorHref} />
 );
+
+export default HiringFooter;

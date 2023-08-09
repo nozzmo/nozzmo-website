@@ -36,7 +36,7 @@ export const H2 = ({
   ...rest
 }: TitleProps) => (
   <h2
-    className={`font-thin mb-4 text-2xl sm:mb-5 sm:text-3xl md:mb-7 lg:text-4xl ${className}`}
+    className={`font-thin mb-4 text-3xl sm:mb-5 sm:text-3xl md:mb-7 lg:text-4xl ${className}`}
     {...rest}
   >
     <DynamicAccent text={title} highlights={highlights} />

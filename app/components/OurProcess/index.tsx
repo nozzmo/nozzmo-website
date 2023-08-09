@@ -1,5 +1,5 @@
 import content from "~/content/ourProcess";
-import { AccordionItemProps } from "~/components/AccordionItem";
+import type { AccordionItemProps } from "~/components/AccordionItem";
 import Accordion from "~/components/Accordion";
 import ContentLimiter from "~/components/ContentLimiter";
 import { H1 } from "~/components/Typography";
@@ -13,7 +13,7 @@ interface OurProcessProps {
   };
 }
 
-const OurProcess = ({ title, items, highlights }: OurProcessProps) => {
+const OurProcessDummy = ({ title, items, highlights }: OurProcessProps) => {
   const { isVisibleRef, isVisible } = useIsVisible<HTMLDivElement>();
   return (
     <section className="bg-white py-16 lg:py-24" ref={isVisibleRef}>
@@ -36,10 +36,12 @@ const OurProcess = ({ title, items, highlights }: OurProcessProps) => {
   );
 };
 
-export default () => (
-  <OurProcess
+const OurProcess = () => (
+  <OurProcessDummy
     title={content.title}
     items={content.items}
     highlights={content.highlights}
   />
 );
+
+export default OurProcess;
