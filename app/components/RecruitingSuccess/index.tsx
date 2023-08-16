@@ -6,7 +6,7 @@ const RecruitingSuccess = ({
   anchorHref,
 }: Omit<
   LeftRightHeroProps,
-  "image" | "title" | "description" | "onStartProjectClick" | "buttonText"
+  "image" | "title" | "description" | "onStartProjectClick"
 >) => {
   return (
     <LeftRightHero
@@ -16,6 +16,7 @@ const RecruitingSuccess = ({
       reversed
       inverted
       biggerTitle
+      useAnchor
     />
   );
 };
