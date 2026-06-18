@@ -8,6 +8,7 @@ export default {
   highlights: {
     title: ["next", "level?"],
   },
-  copyrightYear: 2023,
-  copyright: "Nozzmo. All rights reserved",
+  copyrightYear: new Date().getFullYear(),
+  copyright:
+    "Nozzmo, S.A. · NIT [por confirmar] · Ciudad de Guatemala · Tel [por confirmar] · Todos los derechos reservados",
 };
