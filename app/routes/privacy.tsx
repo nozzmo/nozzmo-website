@@ -42,7 +42,7 @@ export default function Privacy() {
             <H2 className="mt-12" title="Quién opera este sitio" />
             <P
               className="mt-4 text-white/80"
-              text="nozzmo.com es operado por Nozzmo, S.A., sociedad legalmente constituida en Guatemala (NIT [por confirmar], con domicilio en [por confirmar]). Para cualquier asunto de privacidad puedes escribir a info@nozzmo.com."
+              text="nozzmo.com es operado por Nozzmo, S.A., sociedad legalmente constituida en Guatemala (NIT 12003296-1, con domicilio en 18 Avenida A 3-01, Colonia Vista Hermosa 1, Apto. A, Zona 15, Ciudad de Guatemala). Para cualquier asunto de privacidad puedes escribir a info@nozzmo.com."
             />
 
             <H2 className="mt-12" title="Qué datos recolectamos" />
@@ -96,7 +96,7 @@ export default function Privacy() {
             <H2 className="mt-12" title="Contacto" />
             <P
               className="mt-4 text-white/80"
-              text="Nozzmo, S.A. · NIT [por confirmar] · [dirección por confirmar], Guatemala · info@nozzmo.com"
+              text="Nozzmo, S.A. · NIT 12003296-1 · 18 Avenida A 3-01, Colonia Vista Hermosa 1, Apto. A, Zona 15, Ciudad de Guatemala · info@nozzmo.com"
             />
           </article>
         </ContentLimiter>
