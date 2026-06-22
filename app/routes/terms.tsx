@@ -42,7 +42,7 @@ export default function Terms() {
             <H2 className="mt-12" title="Quiénes somos" />
             <P
               className="mt-4 text-white/80"
-              text="Estos términos rigen los servicios prestados por Nozzmo, S.A., sociedad legalmente constituida en Guatemala (NIT 12003296-1, con domicilio en 18 Avenida A 3-01, Colonia Vista Hermosa 1, Apto. A, Zona 15, Ciudad de Guatemala). Al contratar nuestros servicios o usar este sitio, aceptas estos términos."
+              text="Estos términos rigen los servicios prestados por Nozzmo, S.A., sociedad legalmente constituida en Guatemala (NIT 12003296-1, con domicilio en 18av A 3-01A, Vista Hermosa 1, Zona 15, Ciudad de Guatemala). Al contratar nuestros servicios o usar este sitio, aceptas estos términos."
             />
 
             <H2 className="mt-12" title="Nuestros servicios" />
@@ -96,7 +96,7 @@ export default function Terms() {
             <H2 className="mt-12" title="Contacto" />
             <P
               className="mt-4 text-white/80"
-              text="Nozzmo, S.A. · NIT 12003296-1 · 18 Avenida A 3-01, Colonia Vista Hermosa 1, Apto. A, Zona 15, Ciudad de Guatemala · info@nozzmo.com"
+              text="Nozzmo, S.A. · NIT 12003296-1 · 18av A 3-01A, Vista Hermosa 1, Zona 15, Ciudad de Guatemala · info@nozzmo.com"
             />
           </article>
         </ContentLimiter>
