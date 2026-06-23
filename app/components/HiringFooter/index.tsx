@@ -11,6 +11,7 @@ interface HiringFooterProps {
   logo: string;
   copyrightYear: number;
   copyright: string;
+  legalNotice?: string;
   anchorHref?: string;
   highlights?: {
     title?: string[];
@@ -26,6 +27,7 @@ const HiringFooterDummy = ({
   logo,
   copyrightYear,
   copyright,
+  legalNotice,
 }: HiringFooterProps) => (
   <section className="bg-black text-white">
     <ContentLimiter className="py-16 lg:py-24">
@@ -48,7 +50,12 @@ const HiringFooterDummy = ({
       </div>
     </ContentLimiter>
 
-    <Copyright year={copyrightYear} text={copyright} inverted />
+    <Copyright
+      year={copyrightYear}
+      text={copyright}
+      legalNotice={legalNotice}
+      inverted
+    />
   </section>
 );
 

@@ -9,6 +9,7 @@ import useIsVisible from "~/hooks/useIsVisible";
 interface FooterProps {
   copyrightYear: number;
   copyright: string;
+  legalNotice?: string;
   logo: string;
   options: OffcanvasOption[];
   onOptionClick: (optionIndex: number) => void;
@@ -17,6 +18,7 @@ interface FooterProps {
 const Footer = ({
   copyrightYear,
   copyright,
+  legalNotice,
   logo,
   options,
   onOptionClick,
@@ -47,14 +49,21 @@ const Footer = ({
           </div>
         </div>
       </ContentLimiter>
-      <Copyright year={copyrightYear} text={copyright} />
+      <Copyright
+        year={copyrightYear}
+        text={copyright}
+        legalNotice={legalNotice}
+      />
     </footer>
   );
 };
 
 export default function ({
   onOptionClick,
-}: Omit<FooterProps, "copyrightYear" | "copyright" | "logo" | "options">) {
+}: Omit<
+  FooterProps,
+  "copyrightYear" | "copyright" | "legalNotice" | "logo" | "options"
+>) {
   return (
     <Footer
       {...content}
