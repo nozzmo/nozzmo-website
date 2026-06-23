@@ -24,6 +24,10 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="facebook-domain-verification"
+          content="5qjl2v2rycogfag2ygwa1mtvka7i16"
+        />
         <Meta />
         <Links />
       </head>
